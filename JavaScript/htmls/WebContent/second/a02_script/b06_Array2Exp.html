@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	
+	window.onload=function(){
+		// Array()형태만 넣음..
+		var array=Array(0);
+		for(var cnt=1;cnt<=3;cnt++){
+			var color=prompt("색상입력하세요","red");
+			// push : 현재 배열을 크기 이후,
+			array.push( color  );
+		}
+		//alert("배열입력"+array);
+		//document.body.innerHTML="<h1 align='center'>"+array+"</h1>";
+		
+		alert("색상테이블");
+		var showTab="<table width='400' height='100' align='center'><tr align='center'>"
+		for(var idx=0;idx<array.length;idx++){
+			showTab+="<td bgColor='"+array[idx]+"'>"+array[idx]+"</td>";	
+		}
+		showTab+="</tr></table>";
+		document.body.innerHTML=showTab;
+		
+
+	};
+/*
+	prompt 창으로 3개의 색상을 입력받아서..
+	배열로 만든 후,
+	body부분에 출력한다.
+*/
+	
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

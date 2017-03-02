@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>트리구조의 메뉴구성</legend>
+    <ul>
+      <li>공지사항</li>
+      <li>게시판</li>
+      <li>사진첩
+        <ul>
+          <li>가족여행</li>
+          <li>여름휴가</li>
+          <li>겨울휴가</li>
+        </ul>
+      </li>
+      <li>방명록
+        <ul>
+          <li>가족방명록</li>
+          <li>여름방명록</li>
+          <li>겨울방명록</li>
+        </ul>
+      </li>
+    </ul>
+  </fieldset>
+
+  <!-- script-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script type="text/javascript">
+  /*
+  is(':hidden')
+     is(':show')
+  */
+    $(document).ready(function(){
+
+      $("li:not(:has(ul))")
+      .css({cursor : 'pointer', "list-style-image" : 'none'});
+
+      $("li:has(ul)")
+      .css({cursor : 'pointer',
+        "list-style-image"  : 'url(../img/plus.gif)'})
+      .children().hide();
+
+      $("li:has(ul)").click(function(){
+        if($(this).children().is(':hidden')){
+          $(this)
+          .css({"list-style-image" : 'url(../img/minus.gif)'})
+          .children().slideDown();
+        }else{
+          $(this)
+          .css({"list-style-image" : 'url(../img/plus.gif)'})
+          .children().slideUp();
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>

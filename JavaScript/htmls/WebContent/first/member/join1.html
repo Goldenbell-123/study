@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>join.html</title>
+<script>
+/*
+ *  if(조건문1){
+	 	조건문이1이 true인 경우 처리할 내용
+ } else if(조건문2){
+	 조건문2가 ture인 경우 처리할 내용
+ } eles if(조건문3){
+ 	 조건문3이 true인 경우 처리할 내용
+ } else {
+	 위의 모든 조건이 false인 경우
+	 처리할 내용
+ }
+ */
+ //필수항목 입력 확인을 위한 함수
+ function join_chk(){
+	 var frm = document.joinfrm; //폼 객체
+	 var id = frm.user_id;//아이디 객체	 
+	 var pw = frm.user_pw;//비번 객체
+	 var nm= frm.user_name;//이름 객체
+	 //만약에 아이디가 입력되지 않았다면
+ 	 //if( id.value. == "") ||
+	 if( id.value == ""){ //공백 처리 할려면 trim까지 써야됨
+	 	//입력 안내 메세지 출력	 	
+	 	alert("아이디를 입력해주세요!");
+	 return false;}
+	 	else if( pw.value == "")
+ 	 		{alert("비밀번호를 입력해주세요!"); return false;}
+ 	 
+ 		else if ( nm.value == "")
+ 			{alert("이름을 입력해주세요!"); return false;}
+ 		else { frm.submit();
+ 			
+ 		}
+ 		//그렇지 않다면
+	    //form데이터 전송
+ }; 
+ 
+//비밀번호 일치 여부 확인 함수
+	
+	function pwc_vchk(){ 
+	 var pw = document.getElementById("pw_reg");
+	 var pwc = document.getElementById("pw_chk");
+	 var pwv = document.getElementById("pw_chkview");
+ 	if(pw.value == pwc.value)
+		{ pwv.innerHTML = ""; }
+		else {
+		  pwv.innerHTML = "비밀번호가 일치하지 않습니다.";}
+ }; 
+// function pwc_vchk(pw2,pw2view){
+// 	var pw = document.joinfrm.user_pw; 
+// 	if(pw.value != pw2.value){
+//	 	pw2msg.innerHTML = "비밀번호가 일치하지 않습니다."}
+// 	else {
+// 		pw2msg.innerHTML = "";
+// 	} consloe.log("dsd")
+// }
+  function id_view(id1, idview){
+	  var pattern = /^[a-z0-9]{5,10}$/;
+	  if(pattern.test(id1.value) || id1.value == ""){		  
+		  idview.innerHTML= "";
+	  }
+	  else{ 
+		  idview.innerHTML = 
+			  "<font color='red' size='2px'> 10~15자 이내 영어와 숫자만 됩니다.</font>";
+	  }
+  };
+  
+  
+  function pw_view(pw1, pwview){	  
+	  var pattern = /^[a-z0-9A-Z]{10,20}$/;	
+	  if(pattern.test(pw1.value) || pw1.value == ""){
+		  pwview.innerHTML = "";
+	  } else {
+		  pwview.innerHTML = 
+			  "<font color='red' size='2px'> 10~20자 이내 영어와 숫자만 입력됩니다.</font>";
+	  } 
+  };
+  
+  function pw_unlock(){ 
+	  var  pu= document.getElementById("pw_reg");
+
+	  if(pu.value == ""){	  
+	  	document.getElementById("pw_chk").disabled = true;
+	  	document.joinfrm.pw_chk.value = "";
+	  }else{
+		document.getElementById("pw_chk").disabled = false;
+	  }
+		  
+  }
+ 
+  function em_fn(){
+	  var ems = document.getElementById("em_id");
+	  var em2 = document.getElementById("em_tx2");
+		  
+	  if( ems.value == "write" ){
+		  em2.value = "";
+	  }else{
+		  em2.value = ems.value;
+	  }
+  }
+  
+
+  
+  
+</script>
+</head>
+<body>
+							<!-- 처음 -->
+							
+							
+<h2>회원가입</h2><P>
+<table width = 100%>
+	<tr >
+		<td align="center" >
+			<h2> 약관동의	</h2>
+		</td>
+		<td align="center">
+			<fieldset>
+				<h2> <font color="blue">  정보입력 </font></h2>
+			</fieldset>
+		</td>
+		<td  align="center">
+		
+			<h2>가입완료	</h2>
+		
+		</td>
+	</tr>
+</table>
+<hr style="border:inset 5px gray;">
+
+
+                              <!-- 필수항목 시작 -->
+
+
+
+<form action="join_done.html"
+	  method="post"
+	  name="joinfrm">
+<div align="center">
+	<fieldset style="width:550px;" >
+	<legend style="font-size: 20px; font-weight: 900; text-align: left;">필수항목</legend>  
+
+	<table>
+		<tr>
+			<th align="right" colspan="2"> 아이디 </th>               <!-- 아이디 입력 -->
+			<td colspan="4">
+				<input type="text" name="user_id" 
+   			 			maxlength="15" size="15"  			 			 
+
+   			 			placeholder="영문 10 ~ 15자 이내"
+   			 			autocomplete="off"
+   			 			id = "id_reg"
+   			 			onblur = "id_view(this,id_view1)"
+   			 			></input>
+   			 			<span   id="id_view1">
+   			 			</span>
+   		 	</td>
+   		 	
+ 	 	</tr>
+ 	 	<tr>
+ 	 		<th align="right" colspan="2"> 비밀번호 입력 </th>            <!-- 비밀번호 입력 -->
+ 	 		<td colspan="4">
+ 	 			<input type="password" name="user_pw"
+    		 maxlength="20" size="15"
+    		 id="pw_reg"
+    		 placeholder="영어,숫자 20자 이내"
+    		 onblur="pw_view(this,pw_view1)"
+    		 onkeyup="pw_unlock()"
+    		  > <span id="pw_view1">
+    		  </span>
+ 	 		</td>
+ 	 		
+ 	 	</tr>
+ 	 	<tr>
+ 	 		<th align="right" colspan="2"> 비밀번호 확인 </th>             <!-- 비밀번호 확인 -->
+ 	 		<td colspan="4">
+ 	 			<input type="password" name="user_pwc"
+    			 maxlength="20" size="15"
+    				 placeholder="비밀번호를 다시 입력"
+    				 id="pw_chk"
+    				 onkeyup ="pwc_vchk()"
+    				 disabled> 
+ 	 		 <span id="pw_chkview">                                 <!-- 비밀번호 확인 view -->
+ 	 		 		
+ 	 		 	</span>
+ 	 		 
+ 	 		</td>
+ 	 	</tr>
+ 	 	<tr>
+ 	 		<th align="right" colspan="2"> 이름 </th>                        <!-- 이름 입력 -->
+ 	 		<td>
+ 	 			<input type="text" name="user_name"
+    			 maxlength="20" size="15"
+    			 	> 
+ 	 		</td>
+ 	 	</tr>
+ 	 	<tr>
+ 	 		<th align="right" colspan="2">  이메일 </th>                   <!-- 이메일 입력 -->
+ 	 		<td>
+ 	 			<input type="text" maxlength="20" size="15" 
+ 	 			      name="email1"> @
+ 	 		</td>
+ 	 		<td>                                                          <!-- 이메일2 -->
+ 	 			<input type="text" maxlength="20" size="15"      
+ 	 					name="email2" id="em_tx2">
+ 	 		</td>
+ 	 		<td>                                                         <!-- 이메일 select -->
+ 	 			<select name="email_add"                       
+ 	 					id = "em_id"
+ 	 					onchange= "em_fn()"
+ 	 					style="height: 23px;">
+ 	 				<option value="write" >직접입력</option>			
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="gmail.com">gmail.com</option>								
+				</select>
+ 	 		</td>
+ 	 	</tr>
+
+
+
+ 	 	
+	
+		</table>
+
+</fieldset>    		 
+</div><p>
+
+
+                          <!-- 선택 항목 시작 -->
+
+
+<div align="center"> 		 
+<fieldset style="width:550px; ">
+	<legend style="font-size: 20px; font-weight: 900; text-align: left;">선택항목</legend>
+	<table>
+		<tr>
+ 	 		<th > 생년월일 </th>
+ 	 		<td colspan="3">
+ 	 			<input type="number" style="width: 60px;">년
+				
+ 	 				
+ 	 			<select name="month" style="height: 24px;">
+ 	 				<option value=1>1월</option>			
+					<option value=2>2월</option>
+					<option value=3>3월</option>
+					<option value=4>4월</option>
+					<option value=5>5월</option>
+					<option value=6>6월</option>	
+					<option value=7>7월</option>	
+					<option value=8>8월</option>	
+					<option value=9>9월</option>	
+					<option value=10>10월</option>
+					<option value=11>11월</option>
+					<option value=1>12월</option>								
+				</select>
+				<input type="number" min="14" max="31" />일
+ 	 		</td>
+ 	 	
+ 	 		
+ 	 	</tr>
+ 	 	<tr>
+ 	 		<th align="right"> 성별 </th>
+ 	 		<td>
+ 	 			<input type="radio" name="gender" value="m" id="male">
+					<label for="male">남자</label>
+				<input type="radio" name="gender" value="f" id="female">
+					<label for="female">여자</label>
+ 	 		</td>
+ 	 	</tr>	
+		<tr>
+			<th align="right">사진</th>
+			<td colspan="3">
+				<input type="file" name="photo">
+			</td>
+		</tr> 	 
+	</table>
+	</div>	
+		
+</fieldset>
+</div>
+ <div align="center">
+			<inpuT type="button" value="취소" >
+			<inpuT type="submit" value="완료" onclick="return join_chk()">
+</div>
+	
+
+		
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        .warter {
+            color: rgba(186, 125, 92, 0.55);
+        }
+        #alert {
+          color: rgb(189, 34, 34);
+        }
+    </style>
+</head>
+
+<body>
+    <form id="loginFrm">
+        <label id="lblUserID">아이디</label>
+        <input type="text" id="txtUserID" value="txtUserID">
+        <label id="lblUserPWD">패스워드</label>
+        <input type="text" id="txtUserPWD" value="txtUserPWD">
+
+        <button id="loginBtn">로그인</button>
+
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+        $(function() {
+          /* addClass() 해당클레스에 추가, removeClass 해당 클래스를 지움, remove()요소제거, empty()아예 없앰,*/
+          $('#txtUserID').addClass("warter");
+          $('#txtUserPWD').addClass("warter");
+          var markerPWD= $('#lblUserPWD').remove().text();
+          var markerID = $('#lblUserID').remove().text();
+
+          //워터마크
+          $('#txtUserID').val(markerID)
+          .focus(function(){
+            if($(this).val() == markerID){
+              $(this).val("").removeClass("warter");
+            }
+          })
+          .blur(function(){
+            if($(this).val()==""){
+              $(this).val(markerID).addClass("warter");
+            }
+
+          });
+          //워터마크
+          $('#txtUserPWD').val(markerPWD)
+          .focus(function(){
+            if($(this).val() == markerPWD){
+              $(this).val("").removeClass("warter");
+            }
+          })
+          .blur(function(){
+            if($(this).val()==""){
+              $(this).val(markerPWD).addClass("warter");
+            }
+
+          });
+
+          $("#loginBtn").click(function(){
+              if($('#txtUserID').val()==markerID||
+            $('#txtUserPWD').val()==markerPWD){
+                if($('#txtUserID').val()==markerID){
+                  $('#txtUserID').focus();
+                }else if($('#txtUserPWD').val()==markerPWD){
+                  $('#txtUserPWD').focus();
+                }
+                alert("아이디 또는 패스워드를 입력하세요")
+                return false;
+              }else {
+                $('#loginFrm')
+                .prop('action','./xxxx.do')
+                .prop('method','post')
+                .submit();
+              }
+          });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	var student={name:"홍길동",kor:92,math:80,eng:70};
+	//alert( student.name +":"+ ( "name" in student));
+	//alert( student.kor +":"+ ( "kor" in student));
+	//alert( student.math +":"+ ( "math" in student));
+	//alert( student.eng +":"+ ( "eng1" in student));
+	// 객체의 속성값 한번에 가져올때..
+	// with(객체)
+	var show="";
+	with( student ){
+		show+=name+",";
+		show+=kor+",";
+		show+=math+",";
+		show+=eng+",";
+
+	}
+	//alert(show);
+	for(var pro in student){
+		// 속성과 속성값을 호출되어 처리..
+		alert(pro+":"+student[pro]);
+	}
+
+
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

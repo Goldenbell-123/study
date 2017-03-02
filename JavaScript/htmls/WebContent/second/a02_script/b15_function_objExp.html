@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+		var pay01=new DailyPay("홍길동",2400,2400,5000,2000,5000,5000);
+		pay01.prn01();
+		pay01.prn02();
+	};
+	function DailyPay(name,pay01,pay02,lunch,termLun,dinner,night){
+		this.name=name;
+		this.pay01=pay01;
+		this.pay02=pay02;
+		this.lunch=lunch;
+		this.termLun=termLun;
+		this.dinner=dinner;
+		this.night=night;
+		this.tot=function(){
+			return 	this.pay01+this.pay02+this.lunch+this.termLun+this.dinner+this.night;	
+		}
+		this.prn01=function(){
+			var show=this.name+"님의 일일 통학 비용\n";
+			show+="교통비1:"+this.pay01+"\n";
+			show+="교통비2:"+this.pay02+"\n";
+			show+="점심:"+this.lunch+"\n";
+			show+="간식:"+this.termLun+"\n";
+			show+="저녁:"+this.dinner+"\n";
+			show+="야간스트레스해소:"+this.night+"\n";
+			show+="총비용"+this.tot()+"\n";
+			alert(show);
+		}
+		this.prn02=function(){
+			var show="<center><h1>"+this.name+"님의 일일 통학 비용<h1>";
+
+			show+="<table border>";
+			show+="	<tr><td>교통비1</td><td>"+this.pay01+"원</td></tr>";
+			show+="	<tr><td>교통비2</td><td>"+this.pay02+"원</td></tr>";
+			show+="	<tr><td>점심</td><td>"+this.lunch+"원</td></tr>";
+			show+="	<tr><td>간식</td><td>"+this.termLun+"원</td></tr>";
+			show+="	<tr><td>저녁</td><td>"+this.dinner+"원</td></tr>";
+			show+="	<tr><td>야간스트레스해소</td><td>"+this.night+"원</td></tr>";
+			show+="	<tr><td>총비용</td><td>"+this.tot()+"원</td></tr>";
+			document.body.innerHTML=show;
+		}
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

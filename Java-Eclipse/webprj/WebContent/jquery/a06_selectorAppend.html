@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+		src="../jqueryLib/jquery-1.10.2.js">
+	
+</script>
+
+
+<style type="text/css">
+
+	
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//도큐먼트를 쓰는이유는 윈도우온로드랑 같은 의미
+	
+/*
+$("선택객체1 + 선택객체2") ==> 선택객체1 이후에 있는 선택객체2가 있을 때
+							선택객체2에 적용할 내용..
+$(객체).append(추가할내용);
+	$(객체).html(객체).html()+추가할 내용);
+ */
+ 	$("em+a").css("background-color","yellow").append("☆★☆★");
+ 	var obLen=$("em+a").length;
+ 	$('.result1').append("검색된 갯수:"+obLen)
+});
+</script>
+
+
+</head>
+<body>
+	<em>one</em>
+	<a>적용이됨</a><!-- 이건 적용이됨 -->
+	<a>three</a>
+	<b>for</b>
+	<a><b> 적용이 안됨</b></a><!-- 이건 적용이 안됨 -->
+	<em>six</em>
+	<hr>
+	<div>
+		<span> 앞선객체 + 뒤에 객체로 검색된 엘리먼트 :</span>
+		<span class="result1"></span>
+	</div>
+</body>
+</html>

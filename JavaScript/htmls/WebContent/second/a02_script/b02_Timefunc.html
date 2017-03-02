@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+
+		document.body.innerHTML="<h1 align='center'>안녕하세요</h1>";
+		// 1초마다 함수 반복적으로 실행..
+		// setInterval(함수, 반복할 시간term)
+		var interId = setInterval(function(){
+			document.body.innerHTML="<h1 align='center'>"+new Date()+"</h1>";
+		},1000);
+		// 10초 후에, 종료처리..
+		setTimeout( function(){
+			// 반복처리되는 interval을 종료하세요...
+			clearInterval( interId );
+			alert("10초 경과");
+		}, 10000);
+	};
+	
+
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

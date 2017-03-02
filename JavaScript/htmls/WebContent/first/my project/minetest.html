@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2d table</title>
+<script type="text/javascript">
+var x=10;
+var y=10;
+var Bomb=20;
+var minetable01 = new Array();
+
+window.onload= function(){
+	 minereset();
+	 printmine01();
+};	
+
+	 
+	 //minetable01이라는 배열을 선언하겠다.
+	
+
+	//마인 테이블 생성 함수
+	
+	// 테이블 셔플 함수
+
+
+
+ 
+
+	
+//
+//
+//초기화
+function minereset(){
+	var button01=document.getElementById("button_down").innerHTML;
+	for(var idx=0;idx<x;idx++){
+		minetable01[idx]=new Array();
+		for(var jdx=0;jdx<y;jdx++){	
+			minetable01[idx][jdx]=button01;
+		}
+	}
+}
+//마인 테이블 생성 함수
+function minecreate(){
+	//2차배열에 채움
+	for(var idx=0;idx<x;idx++){
+		for(var jdx=0;jdx<y;jdx++){	
+			if(Bomb > 0){
+	           minetable01[idx][jdx]="B";
+	           Bomb--;
+			}
+		}
+	}			
+}			
+
+
+//지뢰 셔플
+function random(){
+	for(var idx=0;idx<x;idx++){
+		for(var jdx=0;jdx<y;jdx++){	
+			var i = parseInt(Math.random()*idx)
+			var j = parseInt(Math.random()*idx)
+			temp = minetable01[idx][jdx];
+			minetable01[idx][jdx] = minetable01[i][j];
+			minetable01[i][j] = temp;
+		}
+	}
+}
+
+//지뢰  파악 함수
+function findmine01(){
+	
+	for(var idx=0;idx<x;idx++){
+		for(var jdx=0;jdx<y;jdx++){
+			var sum = 0;
+			if (minetable01[idx][jdx] != "B"){				
+				//idx-1,jdx-1
+				if ("B" == (idx-1>=0 && jdx-1>=0 && minetable01[idx-1][jdx-1])){ sum++;}
+				//idx-1, jdx
+				if ("B" == (idx-1>=0 && minetable01[idx-1][jdx])){ sum++;}
+				//idx-1, jdx+1
+				if ("B" == (idx-1>=0 && jdx+1<y && minetable01[idx-1][jdx+1])){ sum++;}
+				//idx, jdx-1
+				if ("B" == (jdx-1>=0 && minetable01[idx][jdx-1])){ sum++;}
+				//idx, jdx+1
+				if ("B" == (jdx+1<y && minetable01[idx][jdx+1])){ sum++;}
+				//idx+1, jdx-1
+				if ("B" == (idx+1<x && jdx-1>=0 && minetable01[idx+1][jdx-1])){ sum++;}
+				//idx+1, jdx
+				if ("B" == (idx+1<x && minetable01[idx+1][jdx])){ sum++;}
+				//idx+1, jdx+1
+				if ("B" == (idx+1<x && jdx+1<y && minetable01[idx+1][jdx+1])){ sum++;}	
+				minetable01[idx][jdx] = sum;
+			}
+		}
+	}
+	
+}
+
+function printmine01(){
+	//출력
+	for(var idx=0;idx<x;idx++){
+		for(var jdx=0;jdx<y;jdx++){
+			document.write(minetable01[idx][jdx]);
+		}
+		document.write("<br/>");
+	}//출력 끝
+}
+
+</script>
+</head>
+<body>
+<!--
+1. 버튼 
+2. 깃발
+3. 눌리고 숫자
+4. 깃발 안눌리게
+5. 타이머
+6. 랭킹
+7. 지뢰 주변의 숫자 만족하면 열어줌
+8. 아이디 입력
+9.
+ -->
+<table id="button_down" border="0px" style="width: 30px;height: 30px; border-spacing: 0px; border-color:#CFCFCF; border-style:dotted;">
+	<tr>
+		<td align="center" style="background-color:#CFCFCF;border-style:dotted; ">
+			<font style="font-size:15px; font-weight: 900;color:red;">1
+		</font>
+		</td>
+	</tr>
+</table>
+
+<input type = id >	
+
+
+
+
+</body>
+</html>

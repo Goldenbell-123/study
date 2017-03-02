@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	function call(obj){
+		obj.innerHTML="게임중..";
+		//  parent : 현재 페이지를 포함하는 상위 frameset page를 지정.
+		//  parent.call() : 해당 상위 프레임page의 javascript call()호출..
+		//parent.call();
+		parent.left01.document.body.bgColor="red";
+		parent.left01.document.body.innerHTML="<h1 align='center'>글자변경</h1>";
+		
+		var gameNum=parseInt(Math.random()*6)+1;
+		//alert( gameNum );
+		parent.main01.document.body.innerHTML="<h1 align='center'>주사위게임:"+gameNum+"</h1>";
+	}
+  //-->
+  </script>
+ </head>
+ <body bgColor="yellow">
+	<h1 align="center" onclick="javascript:call(this);">게임시작</h1>
+  
+ </body>
+</html>

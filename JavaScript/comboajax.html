@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+</head>
+<body>
+    <div aling ="right">
+      <p id='timer'></p>
+    </div>
+    <fieldset>
+      <legend> 조건 검색</legend>
+      제조사
+      <select id="makerOpt">
+        <option>선택하세요</option>
+      </select>
+      모델
+      <select id="modelOpt">
+        <option>선택하세요</option>
+      </select>
+      차량트림
+      <select id="trimOpt">
+        <option>선택하세요</option>
+      </select>
+      <label>신형/구형 선택</label>
+      <input type="radio" name="kind" value="구형">구형
+      <input type="radio" name="kind" value="신형">신형
+
+      <button id="sendBtn">SEARCH</button>
+    </fieldset>
+    <fieldset>
+      <legend>검색결과</legend>
+      <table border="1px">
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
+    </fieldset>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+      var makerAry = ["kia","hyundai"];
+      var modelMap = {
+        kia : ["K3","K5","K7","K9"],
+        hyundai : ["Pony","Stela","Grandure","Avangte"]
+      };
+      var trimMap= {
+        K3 : ["Style","Care+","Smart","Premium"],
+        Avangte : ["스마트","스페셜","디럭스","럭셔리","프레스티지","노블레스"]
+      };
+      window.onload = function (){
+        var myVar = setInterval(clock, 1000);
+        function clock(){
+          var date = new Date();
+          document.getElementById('timer').innerHTML =
+          date.toLocaleTimeString();
+        }
+        var maker = document.getElementById('makerOpt');
+        var model = document.getElementById('modelOpt');
+        var trim  = document.getElementById('trimOpt');
+        // Element = createElement('option');
+        // Txt     = createTextNode();
+        // appendChild();
+        // hasChildNodes() == 자식의 노드의 갯수를 리턴
+        // removeChild() ==  자식노드를 삭제할 떄 사용
+        for(var i=0; i < makerAry.length ;i++){
+          var option = document.createElement('option');
+          var node = document.createTextNode(makerAry[i]);
+          option.appendChild(node);
+          maker.appendChild(option);
+        }//end for
+
+        maker.onchange = function(){
+          var value = this.value;
+          if(value== "kia"){
+            delModel(modelMap.kia);
+            setModel(modelMap.kia);
+          }else{
+            delModel(modelMap.hyundai);
+            setModel(modelMap.hyundai);
+          }//end if
+        }//end func
+
+        model.onchange = function(){
+          var value = this.value;
+          if(value== "K3"){
+            delTrim(trimMap.K3);
+            setTrim(trimMap.K3);
+          }else{
+            delTrim(trimMap.Avangte);
+            setTrim(trimMap.Avangte);
+          }//end if
+        }//end func
+
+      }//end window
+
+
+
+      function setModel(ary){
+        var model = document.getElementById('modelOpt');
+        var option = document.createElement('option');
+        var node = document.createTextNode('선택하세요');
+        option.appendChild(node);
+        model.appendChild(option);
+        for(var i=0; i < ary.length ;i++){
+          var option = document.createElement('option');
+          var node = document.createTextNode(ary[i]);
+          option.appendChild(node);
+          model.appendChild(option);
+        }//end for
+      }//end func
+
+      function delModel(ary){
+        var model = document.getElementById('modelOpt');
+        while(model.hasChildNodes()){
+            model.removeChild( model.firstChild);
+        }//end while
+      }//end func
+
+      function setTrim(ary){
+        var trim = document.getElementById('trimOpt');
+        var option = document.createElement('option');
+        var node = document.createTextNode('선택하세요');
+        option.appendChild(node);
+        trim.appendChild(option);
+        for(var i=0; i < ary.length ;i++){
+          var option = document.createElement('option');
+          var node = document.createTextNode(ary[i]);
+          option.appendChild(node);
+          trim.appendChild(option);
+        }//end for
+      }//end func
+
+      function delTrim(ary){
+        var trim = document.getElementById('trimOpt');
+        while(trim.hasChildNodes()){
+            trim.removeChild( trim.firstChild);
+        }//end while
+      }//end func
+
+
+
+      document.getElementById('sendBtn').onclick = function(){
+        var ary = document.getElementsByName('kind');
+        var tbody = document.getElementById('tbody');
+        var makers = document.getElementById('makerOpt').value;
+        var models = document.getElementById('modelOpt').value;
+        var trims  = document.getElementById('trimOpt').value;
+
+        var thary = ['브랜드','모델','트림','신/구형'];
+        var tdary = [ makers,models,trims,onews];
+
+        var flag = false;
+          alert(onews);
+        for(var i=0 ; i<ary.length ; i++){
+          if (ary[i].checked == true){
+            flag = true;
+            break;
+          }
+        }//end for
+        if(flag==false){
+          alert("신/구형 종류를 선택하세요.");
+          return;
+        }//end if
+
+        for(var i=0 ; i<thary.length; i++){
+          var th = document.createTextNode(thary[i]);
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          tr.appendChild(td);
+          td.appendChild(th);
+        }
+        tbody.appendChild(tr);
+
+        for(var i=0 ; i<tdary.length; i++){
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          var text = document.createTextNode(tdary[i]);
+          tr.appendChild(td);
+          td.appendChild(text);
+        }
+        tbody.appendChild(tr);
+
+      }//end func
+
+
+
+    </script>
+
+
+</body>
+</html>

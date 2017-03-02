@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+    var idx=0;
+	function inputData(){
+		var name=document.getElementById("inputName");
+		//alert(name.value);
+		var tds=document.getElementsByTagName("td");
+		tds[idx].align="center";
+		tds[idx++].innerHTML=name.value;	
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+ <h3 align="center">회원등록</h3>
+ <p align="center">
+	이름 : <input type="text" id="inputName" value=""/><br>
+	<input type="button" value="등록"  onclick="inputData()"/>
+ </p>
+ <table align="center" id="tab" width="300" border="1">
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+ </table>
+  <!-- 
+ 1단계
+	회원등록
+이름     : [     ]  
+     [등록]
+   등록된 회원
+      @@@
+	  @@@
+	  @@@
+2단계
+	회원등록
+이름     : [     ]  
+생년월일 : [     ]
+사는곳   : [    ]
+취미     : [   ]
+     [등록]
+	      등록된 회원 list
+NO   이름   생년월일  사는 곳  취미
+1     @@@    @@@@      @@@@    @@@
+2     @@@    @@@@      @@@@    @@@
+
+-->
+ </body>
+</html>

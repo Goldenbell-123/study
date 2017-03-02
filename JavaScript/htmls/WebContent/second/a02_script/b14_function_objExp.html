@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+/*
+	함수형 객체인, Car를 만들고
+	속성값인 차종, 배기량, 최고속도를 입력하여..
+	초기화면에 로딩하면
+	차종 : @@@
+	배기량 : @@@@
+	최고속도 : @@@@ 처리하세요..
+*/
+	window.onload=function(){
+
+		var c1 = new Car("BMW","3500CC",280);
+		var show="<center><h1>차종:"+c1.kind+"</h1>";
+		show+="<h1>배기량:"+c1.displacement+"</h1>";
+		show+="<h1>최고속도:"+c1.velocity+"km/h</h1>";
+		document.body.innerHTML=show;
+
+	};
+
+	function Car(kind,displacement, velocity ){
+		this.kind=kind;
+		this.displacement=displacement;
+		this.velocity=velocity;
+	}
+
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

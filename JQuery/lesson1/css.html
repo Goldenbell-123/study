@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- jquery css()-->
+  <style type = "text/css">
+    .box{
+      width : 50px;
+      height : 20px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="big">Bigger</button>
+    <button class="small">Smaller</button>
+    <button class="plus">Plus</button>
+    <button class="move">move</button>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+
+       var box=$('.box');
+       var pos = 0;
+
+      $(function(){
+        $(".big").click(function(){
+          box.css("width","100px");
+
+        });
+        $(".small").click(function(){
+          box.css("width","30px");
+        });
+
+        $(".plus").click(function(){
+          box.css("width","+=10px");
+        })
+        $(".move").click(function(){
+        var run= setInterval(start,10);
+          function start(){
+              if(pos ==200){
+                clearInterval(run);
+              }else{
+                box.css("width",pos+=10);
+              }//end 인터벌 할때
+          }
+        })
+      });
+
+
+    </script>
+</body>
+</html>

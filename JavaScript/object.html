@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var calculator = {
+      operand1: 1,
+      operand2: 2,
+      add : function(){
+        //자기 자신의 객체를 참조하기 위해 this 키워드를 사용.
+        this.result = this.operand1 + this.operand2;
+      }
+    };
+    calculator.add();
+    console.log(calculator.result);
+  </script>
+</body>
+</html>

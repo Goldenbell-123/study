@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.yellow_circle{
+		width : 40px;
+		height: 40px;
+		border-radius : 20px;
+		background : yellow;
+	}
+</style>
+</head>
+<body>
+	<button id = "show">SHOW</button>
+	<div class="content">hello World</div>
+	<hr/>
+	<div class="yellow_circle" ></div>
+	<p class="yellow_circle_word">노란색 원에 마우스를 올리고 내려보세요.
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		/* selector*/
+		/*
+		가져다 쓰는 방법
+		$('.class_name');
+		$('#id_name');
+		$('tag_name');
+		*/
+		$(".content").on("click",function(){
+			$(".content").hide();
+		});
+		$("#show").on("click",function(){
+			$(".content").show();
+
+		});
+		$(".yellow_circle")
+		//html과 text의 차이점
+		.mouseenter(function(){
+			$(".yellow_circle_word")
+			.text("<font color='black'>원안에 있습니다.</font>");
+		})
+		.mouseleave(function(){
+			$(".yellow_circle_word")
+			.html("<font color='red'>원안을 떠났습니다.</font>");
+		});
+
+		//css 속성도 동적으로 추가할 수 있다.
+		$(".yellow_circle")
+		.hover(
+			function(){
+				$(".yellow_circle").css('border','5px solid blue');
+			},
+			function(){
+				$(".yellow_circle").css('border','5px solid red');
+			}
+		);
+
+		//변수로도 선언할 수 있다.
+		var circle = $(".yellow_circle");
+	});
+
+
+	</script>
+
+</body>
+</html>

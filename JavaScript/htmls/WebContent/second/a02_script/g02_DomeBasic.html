@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload= function(){
+
+  // element를 생성하다. create를 활용..
+  var header= document.createElement("h1");
+  header.align ="center";
+  // elment에 포함될 레이블 txt innerHTML로 호출되어 처리하는 부분.
+  // ==> TextNode
+  var textNode = document.createTextNode("안녕하세요! DOM");
+  // 연결한다.: append Child:하위객체
+  header.appendChild(textNode);
+
+  //최상위 document.body에 입력...-하위 객체로
+  document.body.appendChild(header);
+  var img = document.createElement("img"); //<img>
+  img.src="../../image/invetory.png";
+  img.widht="50";
+  img.hieght="50";
+
+  // 속성값 setAttribute"("속성","속성값");
+  var img01 = document.createElement("img");
+  img01.setAttribute("src","../../image/1.gif");
+  img01.setAttribute("widht","100");
+  img01.setAttribute("hieght","100");
+  document.body.appendChild(img01);
+
+  var haed=document.createElement("center")
+  var contents= document.createTextNode("환영합니다. 우리집에 오셨네요.");
+  head.document.body.appendChild(contents);
+  head.document.body.appendChild(img);
+  };
+/*
+확인에제..
+아래의 내용을 DOM구조로 입력하세요..
+        환영합니다. 우리집에 오셧네요..
+        이미지 (중앙 정렬)
+*/
+</script>
+</head>
+<body>
+<h1 style="backgroundColor=green">하이맨...</h1>
+
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+/*
+자바스크립트 " ' 처리(자바공통)
+	"안녕하세요!!" : ""내용도 출력해서 표현하고자 할 때..  ==> \", \'
+*/
+	//alert(" \"안녕하세요!! \" \n \'정말!!! \' ");
+
+	//alert(!true);  // not true
+	//alert(!false); // not false
+/*
+자바스크립트 변수종류..
+"문자열", '문자열'
+275, 25.25  실수/정수
+true/false  boolean값
+function(){}  함수선언변수
+{} 객체, [] 배열..
+*/
+	var name="홍길동";
+	var alias='김길동'; 
+	// 자바에는 한자만 char a='A'; 들어갈 수 있으나, 자바스크립트는 문자열
+	var numInt = 25; // 정수
+	var numDbl = 65.7; // 실수..
+	var boolvar = true; // true/false 논리값 할당..
+	var func = function(){ }; // 함수 변수 선언..
+	//ex) 
+	var funcCall=function(){   // == function funcCall(){  }
+		alert("함수호출 되었네!!");
+	}
+	funcCall=function(){   // 
+		alert("함수2호출!!!");
+	}
+	function call2(){
+		funcCall();
+	}
+	// 여러 기본데이터형에서 부터, 상기 객체까지 할당 가능..
+	var arrayObj=[true, "하이", 25, function(){return "안녕";}, {name:"홍길동"}];
+	for( var idx=0;idx<arrayObj.length;idx++){
+		alert( arrayObj[ idx ] );
+	}
+
+
+  //-->
+  </script>
+ </head>
+ <body><center>
+  <input type="button" value="함수호출" onclick="call2()"/>
+ </body>
+</html>

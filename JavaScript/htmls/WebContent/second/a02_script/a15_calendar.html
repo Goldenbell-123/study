@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+  // date처리객체
+  /*
+  날짜와 현재 시간을 처리해주는 객체..
+	
+	getMonth() : 월
+	getDate() : 일
+	getHours() : 시
+	getMinutes() : 분
+	getSeconds() : 초
+
+	getYear() getFullYear() 년..
+
+setInterval(함수,1/1000); 해당시간별 마다 반복적으로 처리..
+  */
+
+  window.onload=function(){
+	setInterval(startDate, 1000);
+  };
+  function startDate(){
+	var date = new Date();
+	//date.setDate(date.getDate()+2);
+	var days=["일","월","화","수","목","금","토"]
+	var current="<h1 align='center'>"+date.getFullYear()+"년";
+	current+=(date.getMonth()+1)+"월";
+	current+=(date.getDate())+"일 ";
+	current+=days[ date.getDay() ]+"요일 ";
+	current+=(date.getHours())+":";
+	current+=(date.getMinutes())+" ";
+	current+=(date.getSeconds())+"</h1>";
+	document.getElementById("toDay").innerHTML=current;
+	var curIdx=date.getDay();
+	date.setDate(date.getDate()-curIdx);
+	var tds= document.getElementsByTagName("td");
+	for(var idx=0;idx<tds.length;idx++){
+		if(idx==curIdx){
+			tds[idx].bgColor="yellow";
+		}
+		tds[idx].align="center";
+		tds[idx].innerHTML=date.getDate();
+		date.setDate(date.getDate()+1);
+	}
+
+
+  }
+
+  //-->
+  </script>
+ </head>
+ <body>
+  <p id="toDay"></p>
+  <table border="1" id="tab01" align="center" width="400" height="200">
+	<tr height="50%" id="tr01"><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>
+	<tr  height="50%" id="tr02" >
+		<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	</tr>
+  </table>
+ </body>
+</html>

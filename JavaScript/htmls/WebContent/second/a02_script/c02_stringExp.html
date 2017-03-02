@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+		
+	};
+	var students=[];
+	function inputData(){
+		// 1,홍길동M,70,80,90 
+		var data=document.getElementById("inData").value;
+		// 1,홍길동,남자,70,80,90 
+		// [1,"홍길동","남자",70,80,90]
+		var list = data.replace("M",",남자").replace("F",",여자").split(",");
+		// 입력버튼을 클릭시, 단위객체를 생성하고, 해당데이터입력..
+		var student={};
+		// [1,"홍길동","남자",70,80,90]
+		student.no=list[0];
+		student.name=list[1];
+		student.gender=list[2];
+		student.kor=list[3];
+		student.eng=list[4];
+		student.math=list[5];
+		// 객체 배열에 입력..
+		students.push(student);
+		var show="<table border><tr><th>NO</th><th>이름</th><th>성별</th><th>국어</th><th>영어</th><th>수학</th>";
+		for(idx in students){
+			show+="<tr>";
+			show+="<td>"+(parseInt(idx)+1)+"</td>";
+			show+="<td>"+students[idx].name+"</td>";
+			show+="<td>"+students[idx].gender+"</td>";
+			show+="<td>"+students[idx].kor+"</td>";
+			show+="<td>"+students[idx].eng+"</td>";
+			show+="<td>"+students[idx].math+"</td>";
+			show+="</tr>";
+		}
+		document.getElementById("outputDiv").innerHTML="<center>"+show;
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+ <div id="inputDiv">
+	<center>
+	입력데이터:<input type="text" id="inData"/>
+	<input type='button' value="등록" onclick="inputData()"/>
+ </div>
+ <div id="outputDiv"></div>
+
+  
+ </body>
+</html>

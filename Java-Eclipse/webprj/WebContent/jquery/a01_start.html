@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+		src="../jqueryLib/jquery-1.10.2.js">
+	
+	/*	.. : 상위 경로
+	jqueryLib : 하위 경로
+	jquery-1.10.2.js : 로컬에 있는 lib를 쓴다는 말..
+	*/
+</script>
+
+
+<style type="text/css">
+
+	span{font-size:30pt;}
+	.redtext{color: red;}
+	.bluetext{color: blue;}
+	.yellowtext{color: yellow;}
+	.italicText{font-style:italic;}
+	.spotLight{background:blue;color: yellow;}
+	
+</style>
+
+
+<script type="text/javascript">
+	// $ : jquery
+	$(document).ready(function(){
+		//alert("jquery시작2");
+
+/*
+화면의 내용 중, 특정 내용을 css에 적용된 class를 적용한다.
+	$("객체 또는 tag").addClass("style에서 정의한 class");
+	$("#id명") : tag에 id = "id명"dm으로 지정된 경우..
+	$(".class명") : tag에ㅔ서 속성값으로 class = "class명으로 "지정된 경우
+
+ */
+ 		$("span").addClass("redtext");
+ 		$("span").addClass("italicText");
+ 		$(".simple01Class").addClass("italicText");
+ 		$("#simple02Id").addClass("spotLight");
+ 		$("h1").addClass("redtext");
+ 		$("#hi02").addClass("bluetext");
+ 		$(".hi03").addClass("yellowtext");
+ 		
+ 
+ 
+	});
+/*
+	class 빨강색, 파랑색 노랑색 text 글자 설정을 하고,
+	하단에 tag로, id, class로 해
+안녕당 내용을 적용해서. 
+		안녕 - 빨강 - h1
+		안녕 - 파랑 - h1 
+		안녕 - 노랑 - h1
+	
+ */
+</script>
+
+
+</head>
+<body>
+	<span>안녕하세요..</span>
+	<div class="simple01Class">클래스</div>
+	<span id="simple02Id">안녕하세요. ID입니다.</span>
+	<h1>안녕</h1>
+	<h1 id="hi02">안녕</h1>
+	<h1 class="hi03">안녕</h1>
+</body>
+</html>

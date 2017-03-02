@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //
+    // var global_scope = "global";
+    //
+    // function A(a_scope_param){
+    //   var a_scope = "a";
+    //
+    //   var B = function(){
+    //     var b_scope = "b";
+    //
+    //     return function(){
+    //       var c_scope = "c";
+    //       return global_scope + a_scope +b_scope +c_scope +a_scope_param;
+    //     };
+    //   };
+    //
+    //   return B();
+    // }
+    // console.log(A("첫번째")());
+    // console.log(A("두번째")());
+    function sum(){
+      var num = 0;
+      function addSum(){
+        num++;
+        return num;
+      }
+      return addSum;
+    }
+
+    var test = sum();
+    alert("closure : "+test());
+    alert("closure : "+test());
+
+
+  </script>
+</body>
+</html>

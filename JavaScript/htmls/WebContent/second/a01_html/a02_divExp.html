@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <!--
+  div속성 position : 위치를 절대/상대적으로 처리 absolute, relative<default>
+	top: 브라우저를 왼쪽상단기준으로 얼마나 밑으로 내려오는지!
+	left:왼쪽상단기준으로 얼마나 오른쪽으로 가는지!
+	visibility : 해당 div를 임시적으로 보이지 않게 처리..
+	z-index:div간의 우선순위를 지정.
+  -->
+  <style type="text/css">
+	#div01{background:yellow;width:200;z-index:10;position:absolute;top:40px;left:280px;}
+	#div02{background:red;width:200;visibility:hidden;z-index:100;}
+	#div03{background:green;width:250;height:250;position:absolute;top:50px;left:300px;
+			z-index:100;}
+  </style>
+  <script type="text/javascript">
+  <!--
+	function call(){
+		alert("호출됩니다!");
+		var div03=document.getElementById("div03");
+		div03.style.background="blue";
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+	<input type="button" value="눌러주세요.." onclick="call()"/>
+	<div id="div01">
+		<h1>안녕하세요(div01)</h1>
+		<p>layout연습입니다.</p>
+	</div>
+	<div id="div02">
+		<h1>안녕하세요(div02)</h1>
+		<p>layout연습입니다.</p>
+	</div>
+	<div id="div03">
+		<h1>안녕하세요(div03)</h1>
+		<p>layout연습입니다.</p>
+	</div>
+ </body>
+</html>

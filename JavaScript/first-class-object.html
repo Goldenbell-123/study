@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+      var calc_modules = function(operation){
+        var add = function(a,b){
+          return a+b;
+        }
+        var minus = function(a,b){
+          return a-b;
+        }
+        var div = function(a,b){
+          return a/b;
+        }
+        var multi = function(a,b){
+          return a*b;
+        }
+        switch (operation) {
+          case 'add': return add;
+          case 'minus': return minus;
+          case 'div': return div;
+          case 'multi': return multi;
+            break;
+        }
+      }
+      var calculate = function(calModules, a, b){
+        return calModules(a,b);
+      } 
+
+      var arithmaticOp = calc_modules('add');
+          arithmaticOp = calc_modules('minus');
+          arithmaticOp = calc_modules('div');
+          arithmaticOp = calc_modules('multi');
+          arithmaticOp = calc_modules('minus');
+      var result = calculate(arithmaticOp, 3, 4);
+      alert(result);
+
+    </script>
+
+</body>
+</html>

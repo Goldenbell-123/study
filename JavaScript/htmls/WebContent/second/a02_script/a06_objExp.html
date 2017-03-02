@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	tr{height:20%;}
+	th{width:20%;}
+	td{text-align:center;}
+	input{text-align:right;}
+  </style>
+  <script type="text/javascript">
+  <!--
+	function calcu(){
+		// 해당 테이블의 td를 가져오는 내용..
+		var tds=document.getElementsByTagName("td");
+		// 입력된 수량을 가져오는 것..
+		var cnts=document.getElementsByTagName("input");
+		var price=0; // 가격
+		var cnt=0;   // 갯수
+		var tot=0;   // 총계 - loop 문 밖에서 누적처리..
+		// tds.length-2 : 전체 td에서 총계 레이블과 총계를 나타내는 td는 삭제.
+		// /5 : 데이터단위로 처리하리 하기 위해..
+		for(var idx=0;idx<(tds.length-2)/5;idx++){
+			// td[0] ==> NO, td[1] ==> 과일명, td[2] ==> 단가, td[4] ==> 계
+			// tds[(idx*5)+2] : 각 열의 단가를 가져와서. 문자열 ==> 숫자 parseInt() 
+			price=parseInt(tds[(idx*5)+2].innerHTML);
+			// 입력된 수량을 가져옮
+			cnt=parseInt(cnts[idx].value);
+			// 단위 가격*갯수를 누적시켜 총계로 할당
+			tot+=(price*cnt);
+			// 총계할당..
+			tds[idx*5+4].innerHTML=price*cnt;		
+		}
+		// 마지막 td
+		tds[tds.length-1].innerHTML=tot;
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+<!--
+  연습..
+var cnt=parseInt( td[5].innerHTML);
+NO  과일명   단가  수량   계
+1   사과     3000  [  ]   @@@ 
+2   바나나   4000  [  ]   @@@
+3   딸기    15000  [  ]   @@@
+      총계                @@@
+       [계 산]
+-->
+	<h2 align="center">계산</h2>
+	<table align="center" border="1" height="200" width="400">
+		<tr><th>NO</th><th>과일명</th><th>단가</th><th>수량</th><th>계</th></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td>
+			<td><input type="text" name="cnt"/></td><td></td></tr>
+		<tr><td>2</td><td>바나나</td><td>4000</td>
+			<td><input type="text" name="cnt"/></td><td></td></tr>
+		<tr><td>3</td><td>딸기</td><td>4000</td>
+			<td><input type="text" name="cnt"/></td><td></td></tr>
+		<tr><td colspan="4" align="center">총계</td><td></td></tr>
+	</table>
+	<p align="center"><input type="button" value="계산" onclick="calcu()"/></p>
+ </body>
+</html>

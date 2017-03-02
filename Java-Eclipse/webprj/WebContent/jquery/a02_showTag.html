@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+		src="../jqueryLib/jquery-1.10.2.js">
+	
+</script>
+
+
+<style type="text/css">
+
+	
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	// 해당 객체가 다수일 때..배열로 인식..
+	//alert("div갯수:"+$("div").length);
+	//다른 tag의 여러가지 객체를 인식하고자 할때..
+	//$("태그1, 태그2, 태그3") : 다중의 내용을 선언..
+	//$search : jqeury 변수라는 것을 구분하기 위해 변수 선언에 $표시함.
+	var resultText="";
+	var $searchElements=$("span,div,p");
+	resultText="검색된 엘리먼트 갯수:"+$searchElements.length+"개 이고\n";
+	
+	
+	//	배열 객체.each(함수내용fucntion(){ 처리할 내용 });
+	//	$(this) vs this 
+	//	$(this) : jquery지원하는 메서드를 활용하고자 할때...
+	//	this : 순수 javascript에서 지원하는 키워드를 활용하고자 할 때
+	$searchElements.each(function(){
+		resultText+=$(this).html()+"\t";
+		// jquery변수.html() : innerHTML과 같은 효과
+		// 데이터를 등록 하고자 할 때, html("등록데이터")
+		// 데이터를 호출 하고자 할 떄 , html();
+	});
+	//alert(resultText);
+	$("h1").html(resultText);
+
+
+	var regList="";
+	$(".fruits").each(function(){
+		regList+=$(this).html()+", ";
+	});
+	$("#list").html( $("#list").html()+regList );
+	var tot=0;
+	var price=0;
+	$(".prices").each(function(idx){
+		if(idx%2==0){
+			price=$(this).html();			
+		}else{
+			tot+=price*$(this).html();
+		}
+	});
+	$("#tot").html( $("#tot").html()+tot );
+
+});
+/*
+확인예제..
+등록된 물건
+물건명  가격  갯수
+사과   3000   2
+바나나 4000   1
+딸기   8000   5
+
+현재등록물건 list : 사과, 바나나, 딸기
+총비용 : @@@원
+*/
+
+</script>
+
+
+
+</head>
+<body>
+<span>hi!!</span>
+<div class="simpletxt01">hello!!</div>
+<div></div>
+<h1>등록된 물건</h1>
+<table>
+	<tr><th>물건명</th><th>가격</th><th>갯수</th></tr>
+	<tr><td class="fruits">사과</td>
+		<td class="prices">3000</td>
+		<td class="prices">2</td></tr>
+	<tr><td class="fruits">바나나</td>
+		<td class="prices">4000</td>
+		<td class="prices">1</td></tr>
+	<tr><td class="fruits">딸기</td>
+		<td class="prices">8000</td>
+		<td class="prices">5</td></tr>
+</table>
+<h2 id="list">현재등록물건 list:</h2>
+<h2 id="tot">총비용:</h2>
+
+
+
+</body>
+</html>

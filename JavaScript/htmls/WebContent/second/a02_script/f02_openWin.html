@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload= function(){
+	// opener : 현재 윈도창을 열어준 화면..
+	
+};
+function showOpen(){
+	var title = opener.document.getElementById("title01").innerHTML;
+	//alert("호출된 페이지의 타이틀"+title);
+	document.getElementsByTagName("h1")[0].innerHTML ="title: "+title;
+}
+</script>
+</head>
+<h1 onclick = "javascript:showOpen()">열린창</h1>
+
+<body>
+
+</body>
+</html>

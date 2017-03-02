@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd" >
+       <!-- 
+       bean :객체를 컨테이너 메모리에 로딩할 때, 활용 된다.
+       id:참조변수..
+       property : 메서드의 setXXX,getXXX 에서 소문자로 시작하는XXX내용.
+       	ex) setName()  ==> name이 property
+       	    setAge()   ==> age가 property
+       Person man=new Person(); 
+       man.setName("홍길동");
+       man.setAge(25);
+       name="name" value="홍길동" 
+        -->
+    <bean id="man" class="springweb.z01_vo.Person">
+    	<property name="name" value="홍길동"/>
+    	<property name="age" value="25"/>
+    </bean>   
+</beans>       

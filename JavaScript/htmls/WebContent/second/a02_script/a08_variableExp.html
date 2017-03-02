@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	td{text-align:center;}
+  </style>
+  <script type="text/javascript">
+  <!--
+	  var tot=1000;
+	  function call(idx){
+		tot--;
+		document.getElementById("totAppl").innerHTML=tot;
+		var ths=document.getElementsByTagName("th");
+		var tds=document.getElementsByTagName("td");
+		for(var ix=0;ix<ths.length;ix++){
+			ths[ix].bgColor="";
+			tds[ix].bgColor="";
+		}
+		ths[idx].bgColor="yellow";
+		tds[idx].bgColor="yellow";
+		var cnt=parseInt(tds[idx].innerHTML);
+		cnt++;
+		tds[idx].innerHTML=cnt;
+	  }
+  //-->
+  </script>
+ </head>
+ <body>
+ <h2 align="center">아기돼지들이 먹은 사과!!</h2>
+ <p align="center"><font size="5">현재 남은 사과:</font>
+                   <font id="totAppl" size="5">1000</font></p>
+ <table width="50%" height="100" border align="center">
+	<tr height="50">
+	    <th onclick="call(0)">첫째돼지</th>
+	    <th onclick="call(1)">둘째돼지</th>
+		<th onclick="call(2)">셋째돼지</th></tr>
+	<tr><td>0</td><td>0</td><td>0</td></tr>
+ </table>
+  
+ </body>
+</html>

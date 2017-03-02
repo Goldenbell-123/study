@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    #showImage{
+        border: 1px solid #1c4cda;
+        width: 400px;
+        height: 250px;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="product">
+    <img src="../img/Koala.jpg" width="100px" id="k">
+    <img src="../img/Penguins.jpg" width="100px" id="p">
+    <img src="../img/Lighthouse.jpg" width="100px" id="l">
+    <div id="showImage">
+
+    </div>
+  </div>
+  <hr/>
+  <table>
+    <tr>
+      <td>
+        <select id="fruit">
+            <option value="strawberry.gif">딸기</option>
+            <option value="banana.gif">바나나</option>
+            <option value="apple.gif">사과</option>
+        </select>
+      </td>
+      <td>
+        <img  id="imgView"/>
+      </td>
+    </tr>
+  </table>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script type="text/javascript">
+  /*
+      prop() -- javascript attribute() setAtribute(), getAttribute()
+      prop(key, value); set
+      prop(key); get
+      상황에 따라서  어떤 테그의 속성을 가져오거나 속성을 추가 시킬수도 있다.
+  */
+      $(function() {
+        $("#fruit").change(function(){
+          var imgSrc = $(this).val();
+          $("#imgView").prop("src","../img/"+imgSrc);
+        })
+        // $("#k").hover(function(){
+        //   $("#k").prop("img","<img src='../img/Koala.jpg' style='height:250px;' />");
+        //   $("#showImage").html(  $("#k").prop("img"));
+        //
+        // })
+        // $("#p").hover(function(){
+        //   $("#p").prop("img","<img src='../img/Penguins.jpg' style='height:250px;' />");
+        //   $("#showImage").html(  $("#p").prop("img"));
+        //
+        // })
+        // $("#l").hover(function(){
+        //   $("#l").prop("img","<img src='../img/Lighthouse.jpg' style='height:250px;' />");
+        //   $("#showImage").html(  $("#l").prop("img"));
+        //
+        // })
+
+        // #id tag = 이 아이디가 가진 테그를 쓰겠음
+        $("#product img")
+        .mouseover(function(){
+          var imgSrc = $(this).prop("src");
+          $("#showImage")
+            .html($('<img>')
+                      .prop("src",imgSrc)
+                      .css("width","400px")
+                      .css("height","250px"));
+        })
+        .mouseout(function(){
+              $("#showImage img").hide();
+
+        })
+      });
+  </script>
+</body>
+</html>

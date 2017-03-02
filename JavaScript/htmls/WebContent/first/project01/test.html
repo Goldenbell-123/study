@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+    @import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+    .block {
+    	display:inline-block;
+        width:30px;
+        height:30px;
+        border-style: outset;        
+        background-color:#333333;
+        background-size: 30px 30px;
+
+       
+    }
+    .flag {
+        width:30px;
+        height:30px;
+        border-style: outset;
+        background-image:url('../imgs/flag.png');
+        background-size: 30px 30px;
+    }
+    .qmark {
+        width:30px;
+        height:30px;
+        border-style: outset;
+        background-image:url('../imgs/qmark.png'); 
+        background-size: 30px 30px;
+    }
+    .num0 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver}
+    .num1 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:blue}
+    .num2 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:green}
+    .num3 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:red}
+    .num4 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:purple}
+    .num5 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:#aa0021}
+    .num6 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:#aa0021}
+    .num7 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:#aa0021}
+    .num8 {width:30px; height:30px; border-style: inset; font-size: 15px; font-family: 'Jeju Hallasan'; background-color: silver; color:#aa0021}
+
+    .btn {
+    	
+        font-family: 'Jeju Hallasan';
+        font-size: 20px;
+        width:120px;
+        height:40px;
+        color: white;
+        border-style: outset;
+        background-color:#333333;
+        
+    }
+    .timefont{
+   		display:inline-block; 
+   		width:100px;
+   		background-color:black; 
+   		border-width:6px; 
+   		border-style:outset; 
+   		border-color:black;
+   		opacity: 0.6; 
+   		border-radius: 7px;"
+   	}
+   	.mineCnt{
+   	   	display:inline-block; 
+   		width:70px;
+   		background-color:black; 
+   		border-width:6px; 
+   		border-style:outset; 
+   		border-color:black;
+   		opacity: 0.6; 
+   		border-radius: 7px;"
+   	}
+    </style>
+
+    <script>
+    // 전역 변수 초기화
+    const MINE = -1;
+    const NOTHING_AROUND = 0;
+    var rowNum = 0;
+    var colnum = 0;
+    var mineCount = 0;
+    var userMineCount = 0;
+    var board;
+    var sec = 0;
+    var isStarted = false;
+    var interval;
+    var userMine;
+    var blockCount = 0;
+    var currentLevel = 0;
+    var isEnded = false;
+
+    window.onload = function() {
+        selectLevel("level1");
+        background();
+    }
+
+    function selectLevel(level) {
+        switch(level) {
+        case "level1":
+            rowNum = 9;
+            colNum = 9;
+            mineCount = 1;
+            currentLevel = 1;
+            break;
+        case "level2":
+            rowNum = 16;
+            colNum = 16;
+            mineCount = 1;
+            //mineCount = 40;
+            currentLevel = 2;
+            break;
+        case "level3":
+            rowNum = 16;
+            colNum = 30;
+            //mineCount = 99;
+            mineCount = 1;
+            currentLevel = 3;
+            break;
+        default:
+            rowNum = 10;
+            colNum = 10;
+            mineCount = 10;
+            currentLevel = 0;
+            break;
+        }
+
+        reset();
+        background();
+    }
+	
+    var cnt=0;
+    
+    function background(){
+
+    	var imgArray = [];	
+        	imgArray[0]="1.jpg";
+        	imgArray[1]="2.gif";
+        	imgArray[2]="3.jpg";
+        	imgArray[3]="4.jpg";
+        	imgArray[4]="5.jpg";
+        	imgArray[5]="6.gif";
+        	imgArray[6]="7.jpg";
+        	imgArray[7]="8.jpg";
+        	imgArray[8]="9.jpg";
+        	imgArray[9]="10.jpg";
+        	imgArray[10]="11.jpg";
+        	imgArray[11]="12.jpg";
+        	imgArray[12]="13.jpg";
+        	if(cnt==imgArray.length) cnt=0;
+ 
+        var rand= Math.floor(Math.random()*imgArray.length);
+        	document.body.style = "background: url("+imgArray[cnt]+") no-repeat center fixed ; background-size: cover;";	
+        	cnt++;
+     }
+    function reset() {
+        sec = 0;
+        isStarted = false;
+        blockCount = rowNum * colNum;
+        userMineCount = mineCount;
+        isEnded = false;
+        clearInterval(interval);
+
+        // board 초기화
+        board = new Array(rowNum);
+
+        for (var row = 0; row < rowNum; row++) {
+            board[row] = new Array(colNum);
+
+            for (var col=0; col < colNum; col++) {
+                board[row][col] = 0;
+            }
+        }
+
+        // 유저 지뢰 정보 초기화
+        userMine = new Array(rowNum);
+
+        for (var row = 0; row < rowNum; row++) {
+            userMine[row] = new Array(colNum);
+
+            for (var col=0; col < colNum; col++) {
+                userMine[row][col] = 0;
+            }
+        }
+
+        // 지뢰 설치
+        for (var i = 0; i < mineCount; i++) {
+            var row = Math.floor(Math.random() * rowNum);
+            var col = Math.floor(Math.random() * colNum);
+
+            if (board[row][col] == MINE) {
+                i--;
+                continue;
+            } else {
+                board[row][col] = MINE;
+            }
+        }
+
+        // 주위 지뢰 개수 표시
+        for (var row = 0; row < rowNum; row++) {
+            for (var col = 0; col < colNum; col++) {
+
+                if (board[row][col] != MINE) {
+                    for (var i = -1; i <= 1; i++) {
+                        for (var j = -1; j <= 1; j++) {
+                            if (row + i < 0 || row + i > (rowNum - 1) ||
+                                col + j < 0 || col + j > (colNum -1)) {
+                                continue;
+                            }
+
+                            if (board[row + i][col + j] == MINE) {
+                                board[row][col]++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 버튼 생성
+        var html = "";
+
+        for (var row = 0; row < rowNum; row++) {
+            for (var col = 0; col < colNum; col++) {
+                html += "<input type='button' id=";
+                html += row + "," + col + " onclick='leftClick(this.id)' value=' ' onmousedown='rightClick(this.id)' oncontextmenu='return false' class='block'>";
+            }
+
+            html += "<br>";
+        }
+
+        // debug용
+        // html += "<br><br>";
+        // for (var row = 0; row < rowNum; row++) {
+        //     for (var col = 0; col < colNum; col++) {
+        //         html += board[row][col] + " ";
+        //     }
+        //     html += "<br>";
+        // }
+        // debug용
+
+        document.getElementById("mineMap").innerHTML = html;
+
+        document.getElementById("time").innerHTML = "<font color='white' size = '5px'><b>  00:00 </b></font>";
+        document.getElementById("mineCount").innerHTML = "<font color='white' size = '5px'><b>" + mineCount + "</b></font>";
+    }
+    
+	// 타이머
+    function leadingZeros(n, digits) {
+	    var zero = '';
+	    n = n.toString();
+
+	    if (n.length < digits) {
+	    for (var i = 0; i < digits - n.length; i++)
+	        zero += '0';
+	    }
+	    return zero + n;
+	}
+
+    function leftClick(id) {
+        var button = document.getElementById(id);
+        var coord = id.split(",");
+        var row = parseInt(coord[0]);
+        var col = parseInt(coord[1]);
+
+        var time = document.getElementById("time");
+        if (!isStarted) {
+            isStarted = true;
+            interval = setInterval(function() {
+                sec++;
+                time.innerHTML = "<font color='white' size = '5px'><b>" +leadingZeros(parseInt(sec/60),2)+":"+leadingZeros(parseInt(sec%60),2); + "</b></font>";
+            }, 1000);
+        }
+
+        if (button.className == 'block' || button.className == 'qmark') {
+            if (board[row][col] == MINE) {
+                isEnded = true;
+                alert("지뢰임");   // 휠클릭시 버그 재귀호출된 leftClick 이 마주 호출된다
+                if (event.button == 0) {
+                    reset();
+                }
+                
+            } else {
+                var att = document.createAttribute("class");
+                att.value = "num" + board[row][col];
+                button.setAttributeNode(att);
+                
+                if (board[row][col] == NOTHING_AROUND) {
+                    blockCount--;
+                    console.log("blockCount : " + blockCount);
+
+                    for (var i = -1; i <= 1; i++) {
+                        for (var j = -1; j <= 1; j++) {
+                            if (row + i < 0 || row + i > (rowNum - 1) ||
+                                col + j < 0 || col + j > (colNum - 1)) {
+                                continue;
+                            }
+
+                            if (document.getElementById((row + i) + "," + (col + j)).className == "block" &&
+                                board[row + i][col + j] != MINE) {
+                                    leftClick((row + i) + "," + (col + j));
+                            }
+                        }
+                    }
+                } else {
+                    button.value = board[row][col];
+                    blockCount--;
+                    console.log("blockCount : " + blockCount);
+                }
+
+                if (blockCount == 0) {
+                    checkSuccess();
+                }
+            }
+        }
+
+        
+    }
+
+    function checkSuccess() {
+        var count = 0;
+
+        for (var row = 0; row < rowNum; row++) {
+            for( var col = 0; col < colNum; col++) {
+                if (userMine[row][col] == MINE) {
+                    if (board[row][col] == MINE) {
+                        count++;
+                    } else {
+                        alert("실패");
+                        reset();
+                    }
+                }
+            }
+        }
+
+        if (count == mineCount) {
+            isEnded = true;
+            clearInterval(interval);
+
+            var name = prompt("와우!! " + sec + " 초를 기록하셨습니다~ \n영웅의 이름을 입력해주세요", "아무개");
+            var records = JSON.parse(localStorage.getItem("" + currentLevel));
+
+            if (records) {
+                var isExist = false;
+                for (var i = 0; i < records.length; i++) {
+                    if (records[i].name == name) {
+                        if (records[i].sec > sec) {
+                            records[i].sec = sec;
+                            isExist = true;
+                        }
+                    }
+                }
+
+                if (!isExist) {
+                    var record = {};
+                    record.name = name;
+                    record.sec = sec;
+
+                    records.push(record);
+                }
+
+                localStorage.setItem("" + currentLevel, JSON.stringify(records));
+            } else {
+                var records = [];
+                var record = {};
+                record.name = name;
+                record.sec = sec;
+                records.push(record);
+                localStorage.setItem("" + currentLevel, JSON.stringify(records));
+            }
+
+            localStorage.setItem("name", name);
+            document.location.href="ranking.html";
+        }
+    }
+
+    function rightClick(id) {
+        var button = document.getElementById(id);
+        var coord = id.split(",");
+        var row = parseInt(coord[0]);
+        var col = parseInt(coord[1]);
+
+        // 오른클릭
+        if (event.button == 2) {
+            if (button.className == "block") {
+                button.className = "flag";
+                userMine[row][col] = MINE;
+                blockCount--;
+                userMineCount--;
+                console.log("blockCount : " + blockCount);
+
+                if (blockCount == 0) {
+                    checkSuccess();
+                }
+            } else if (button.className == "flag") {
+                button.className = "qmark";
+                userMine[row][col] = 0;
+                blockCount++;
+                userMineCount++;
+                console.log("blockCount : " + blockCount);
+            } else if (button.className == "qmark") {
+                button.className = "block";
+                console.log("blockCount : " + blockCount);
+            }
+
+            document.getElementById("mineCount").innerHTML = "<font color='white'>" + userMineCount + "</font>";
+        } // 오른클릭
+        // 훨버튼
+        else if (event.button == 1) {
+            var flagCount = 0;
+
+            if (button.className.match("num")) {
+                for (var i = -1; i <= 1; i++) {
+                    for (var j = -1; j <= 1; j++) {
+                        if (row + i < 0 || row + i > (rowNum - 1) ||
+                            col + j < 0 || col + j > (colNum - 1)) {
+                            continue;
+                        }
+
+                        if (document.getElementById((row + i) + "," + (col + j)).className == "flag") {
+                            flagCount++;
+                        }
+                    }
+                }
+
+                if (board[row][col] == flagCount) {
+                    ended: for (var i = -1; i <= 1; i++) {
+                        for (var j = -1; j <= 1; j++) {
+                            if (isEnded) {
+                                break ended;
+                            }
+
+                            if (row + i < 0 || row + i > (rowNum - 1) ||
+                                col + j < 0 || col + j > (colNum - 1)) {
+                                continue;
+                            }
+
+                            if (document.getElementById((row + i) + "," + (col + j)).className == "block") {
+                                leftClick((row + i) + "," + (col + j));
+                            }
+                        }
+                    }
+
+                    if (isEnded) {
+                        reset();
+                    }
+                }   //
+                
+            }
+        } // 휠버튼
+    }
+
+
+    </script>
+</head>
+<body>
+    <br>
+    <div id="menu" align="center">
+        <input type="button" id="level1" value="초급" class="btn" onclick="selectLevel(this.id);">
+        <input type="button" id="level2" value="중급" class="btn" onclick="selectLevel(this.id);">
+        <input type="button" id="level3" value="고급" class="btn" onclick="selectLevel(this.id);">
+    </div>
+
+    <br><br>
+
+    <table border="5"  cellspacing="10" align="center">
+        <tr >
+            <td><div id="mineMap"></div></td>
+        </tr>
+    </table>
+
+    <br>
+    <table align="center" width="300px">
+        <tr>
+            <td ><img src="../imgs/clock.png" width="20px" height="20px">&nbsp;&nbsp;&nbsp;
+            	<span id="time"
+            	class="timefont" 
+            	align ="center" 
+            	></span></td>
+            <td align="right"><img src="../imgs/mine.jpg" width="20px" height="20px">&nbsp;&nbsp;&nbsp;
+           		<span id="mineCount" align ="center" class="mineCnt"></span></td>
+        </tr>
+    </table>
+    
+        
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <span id="openBtn">클릭열기</span>
+  <p/>
+  <div align="center">
+    <form name="cbfrm">
+      <label for="">전체선택/해제</label>
+      <input type="checkbox" name="allchk" id="allchk"><br/><hr/>
+      <label for="">아이스크림</label>
+      <input type="checkbox" name="food" value="아이스크림" id="ice"><br/>
+      <label for="">커피</label>
+      <input type="checkbox" name="food" value="커피" id="coffee"><br/>
+      <label for="">음료수</label>
+      <input type="checkbox" name="food" value="음료수" id="dring"><br/>
+      <input type="button" value="SEND" id="checkBtn">
+
+    </form>
+    <br/><br/><br/><br/><br/>
+    <div id ="result"><div>
+
+  </div>
+  <script type="text/javascript">
+    window.onload = function(){
+
+      /////////////////////////////////////
+      document.getElementById('openBtn').onclick = function(){
+        window.open("test.html","test","width=300,height=200,toolbar=no");
+      }//end windowopen
+      /////////////////////////////////////
+      document.getElementById("allchk").onclick = function(){
+
+        var ary = document.getElementsByName("food")
+          if(document.getElementById("allchk").checked){
+            for(var i=0; i<ary.length;i++){
+              ary[i].checked=true;
+            }
+          }else{
+            for(var i=0;i<ary.length;i++){
+              ary[i].checked=false;
+            }
+          }
+      }//end allchk
+
+      var ary= document.getElementsByName('food');
+      for(var i=0;i<ary.length;i++){
+        ary[i].onclick=function(){
+
+          if(this.checked ==false){
+            document.getElementById('allchk').checked=false;
+
+          }else if(this.checked==true){
+            var checks=true;
+            for(var i=0;i<ary.length;i++){
+              if(ary[i].checked==false){
+                checks=false;
+                break;
+              }
+            }
+            if(checks==true){
+              document.getElementById('allchk').checked=true;
+            }
+          }//end if
+        }//end function
+      }//end check food
+      document.getElementById('checkBtn').onclick=function(){
+        var foodary= document.getElementsByName('food');
+        var result = document.getElementById('result');
+        var cart = "";
+        var flag = true;
+        for(var i=0;i<foodary.length;i++){
+          if(foodary[i].checked==true){
+            cart+= ", "+foodary[i].value;
+            flag = false;
+          }else{
+            flag = true;
+          }
+        }//end for
+        if(flag==false){
+          result.innerHTML = cart;
+        }else{
+          alert("제품을 선택해주세요.");
+          result.innerHTML = "";
+        }
+      }//end result func
+    }//end window
+  </script>
+</body>
+</html>

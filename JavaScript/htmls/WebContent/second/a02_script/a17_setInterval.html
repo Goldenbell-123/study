@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+  	//hihi
+	var cnt=10;
+	var inter;
+	window.onload=function(){
+		// 함수 1초가 반복..
+	    inter=setInterval(countDown, 1000);
+	};
+	function countDown(){
+		cnt--;
+		document.getElementsByTagName("h1")[0].innerHTML=cnt;	
+		if(cnt==0){
+			clearInterval(inter); // 반복함수를 중지시켜준다..
+			alert("종료!");
+		}
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+	<h1 align="center">10</h1>
+ </body>
+</html>

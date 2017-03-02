@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+		var tab="<table align='center'>";
+		tab+="<tr><th>NO</th><th>시간</th><th>일정내용</th><th>중요도</th><th>비용</th><th>소요시간</th></tr>";
+		for(var idx in dayilPlans){
+			tab+="<tr>";
+			tab+="<td>"+(parseInt(idx)+1)+"</td>";
+			tab+="<td>"+dayilPlans[idx].time+"</td>";
+			tab+="<td>"+dayilPlans[idx].cont+"</td>";
+			tab+="<td>"+dayilPlans[idx].per+"</td>";
+			tab+="<td>"+dayilPlans[idx].pay+"</td>";
+			tab+="<td>"+dayilPlans[idx].tpay+"</td>";
+
+			tab+="</tr>";
+		}
+		tab+="</table>";
+		document.body.innerHTML="<h1 align='center'>나의 하루 일과</h1>"+tab;
+	};
+	var dayilPlans=[];
+	dayilPlans.push({time:"6:00",cont:"기상",per:1,pay:0,tpay:10});
+	dayilPlans.push({time:"7:00",cont:"버스",per:5,pay:2400,tpay:10});
+	dayilPlans.push({time:"9:00",cont:"자바",per:2,pay:0,tpay:30});
+	dayilPlans.push({time:"13:30",cont:"식사",per:3,pay:5000,tpay:20});
+/*
+확인예제==> 숙제?
+1단계
+dailyPlans :배열객체
+	plan :단위객체
+		속성값: 시간, 일정내용, 중요도, 비용
+	          나의 하루 일과
+	no 시간  일정내용   중요도 비용  시간(분)
+	1  6:00  기상       1      0     10        
+	..                                        
+	5  7:00  버스       2      1200  40         
+	..
+	20 23:00 일기및정리 1      0     20
+2단계
+   plan 속성값 비용누적합산(함수처리), 시간누적합산 (함수처리)
+*/
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

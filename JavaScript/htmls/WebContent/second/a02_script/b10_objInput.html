@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+		//alert(students.length);
+		var show="<table align='center' border>";
+		for(var idx=0;idx<students.length;idx++){
+			show+="<tr>";
+			show+="<td>"+students[idx].name+"</td>";
+			show+="<td>"+students[idx].kor+"</td>";
+			show+="<td>"+students[idx].eng+"</td>";
+			show+="<td>"+students[idx].math+"</td>";
+			show+="<td>"+students[idx].getSum()+"</td>";
+			show+="<td>"+students[idx].getAvg()+"</td>";
+			show+="</tr>";
+		}
+		document.body.innerHTML=show;
+	};
+	var students=[];
+	// 배열에 객체할당..
+	// [] ==> {}
+	// index 할당하는 방법
+	// array[idx]={속성,속성값};
+	// 객체자체를 push..
+	// array.push({속성,속성값..})
+	students.push({name:"홍길동1",kor:70,eng:80,math:90}); // 배열에 객체할당
+	students.push({name:"홍길동2",kor:70,eng:70,math:90}); // 배열에 객체할당
+	students.push({name:"홍길동3",kor:70,eng:80,math:97}); // 배열에 객체할당
+	students.push({name:"홍길동4",kor:75,eng:80,math:90}); // 배열에 객체할당
+	students.push({name:"홍길동5",kor:70,eng:80,math:92}); // 배열에 객체할당
+	//alert(students.length);
+
+	// **javascript: for( 배열index in 배열) ex) for( 객체의속성 in 객체)
+		
+	// java : for( 단위객체 : 배열객체 )  ex) for( Person p:persons)
+	for(var idx in students){
+		//alert( students[idx].name );
+		students[idx].getSum=function(){
+			// this : 현재 이 객체 가지고 있는 변수,메서드..
+			return this.kor+this.eng+this.math;
+		}		
+		students[idx].getAvg=function(){
+			// this : 현재 이 객체 가지고 있는 변수,메서드..
+			return this.getSum()/3;
+		}
+	}
+/*
+확인예제==> 숙제?
+1단계
+dailyPlans :배열객체
+	plan :단위객체
+		속성값: 시간, 일정내용, 중요도, 비용
+	          나의 하루 일과
+	no 시간  일정내용   중요도 비용  시간(분) <누적비용  누적시간>
+	1  6:00  기상       1      0     10        
+	..                                        
+	5  7:00  버스       2      1200  40         
+	..
+	20 23:00 일기및정리 1      0     20
+2단계
+   plan 속성값 비용누적합산(함수처리), 시간누적합산 (함수처리)
+
+	
+
+
+*/
+  //-->
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

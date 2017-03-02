@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mouse event_Ex</title>
+<script type="text/javascript">
+window.onload = function(){
+	
+	var tds = document.getElementsByTagName("td");
+	for(var idx in tds){
+		//객체.onmouse
+		tds[idx].onmouseover=call;
+		tds[idx].onmouseout=callout;
+	};
+
+};
+	
+	function call(obj){	
+		this.style.backgroundColor=this.id;	
+	}
+	
+	
+	function callout(){
+		this.style.backgroundColor="yellow";
+	}	
+	
+	
+</script>
+</head>
+<body>
+<center>
+	<table border="1" style="width: 200px; height:200px;">
+		<tr><td id="red"></td></tr>
+		<tr><td id="orange"></td></tr>
+		<tr><td id="yellow"></td></tr>
+		<tr><td id="green"></td></tr>
+		<tr><td id="blue"></td></tr>
+		<tr><td id="navy"></td></tr>
+		<tr><td id="purple"></td></tr>		
+	</table>
+</body>
+</html>

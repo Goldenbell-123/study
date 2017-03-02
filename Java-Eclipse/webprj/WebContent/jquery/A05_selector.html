@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+		src="../jqueryLib/jquery-1.10.2.js">
+	
+</script>
+
+
+<style type="text/css">
+
+	
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	/*
+	$("객체 지칭") : , , ==>다중내용 선택,
+				  상위 객체 객체 ==> 상위 객체에 포함된 하위 객체
+				  상위객체>하위 객체 ==> 상위객체 바로 밑 하위 객체	  
+	.css("css속성","속성값")
+	border 속성,굵기 type 색상
+	*/
+	$("div em").css("border","3pt solid red");
+	$("span em").css("border","3pt dotted blue");
+
+});
+</script>
+
+
+</head>
+<body>
+<!-- em이라는 하위 객체를 넣는다. -->
+	<div>
+		<em>Hellow!</em>
+		<em>Query!</em>
+		<em>Forever!</em>
+	</div>
+	<span>
+		<em>Good Bye!</em>
+		<em>javascript!</em>
+	</span>
+	<p>
+		<em>one</em>
+		<em>two</em>
+		<span><em>three</em></span>
+	</p>
+	<div>
+		<em>four</em>
+		<span><em>five</em></span>
+		<em>six</em>
+	</div>
+
+</body>
+</html>

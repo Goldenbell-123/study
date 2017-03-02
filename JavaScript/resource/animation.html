@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <style media="screen">
+        #container{
+          width      : 500px;
+          height     : 500px;
+          position   : relative;
+          background : yellow;
+        }
+        #box{
+          width      : 50px;
+          height     : 50px;
+          position   : absolute;
+          background : blue;
+        }
+    </style>
+</head>
+<body>
+  <h1>JS Animation</h1>
+  <button id="crossBtn">CROSS</button>
+  <button id="leftBtn">LEFT</button>
+  <button id="rigthBtn">Right</button>
+  <button id="resetBtn">Reset</button>
+  <div id="container">
+    <div id="box"></div>
+  </div>
+  <script type="text/javascript">
+    window.onload = function(){
+      var cross = document.getElementById('crossBtn');
+      var left = document.getElementById('leftBtn');
+      var right = document.getElementById('rigthBtn');
+      var reset = document.getElementById('resetBtn');
+      cross.onclick = function(){
+        var box = document.getElementById('box');
+        var pos = 0;
+        var run = setInterval(moveAnimation,5);
+        function moveAnimation(){
+          if(pos ==450){
+            clearInterval(run);
+          }else{
+            pos++;
+            box.style.top =pos+"px";
+            box.style.left = pos+"px";
+          }//end if
+        }//end func
+      }//end func
+
+      left.onclick = function(){
+        var box = document.getElementById('box');
+        var pos = 0;
+        var run = setInterval(moveAnimation,5);
+        function moveAnimation(){
+          if(pos ==450){
+            clearInterval(run);
+          }else{
+            pos++;
+            box.style.left = pos+"px";
+          }//end if
+        }//end func
+      }//end func
+
+      right.onclick = function(){
+        var box = document.getElementById('box');
+        var pos = 0;
+        var run = setInterval(moveAnimation,5);
+        function moveAnimation(){
+          if(pos ==450){
+            clearInterval(run);
+          }else{
+            pos++;
+            box.style.right = pos+"px";
+          }//end if
+        }//end func
+      }//end func
+
+      reset.onclick = function(){
+        var box = document.getElementById('box');
+        var pos = 0;
+        var run = setInterval(moveAnimation,5);
+        function moveAnimation(){
+          if(pos ==450){
+            clearInterval(run);
+          }else{
+            box.style.top =pos+"px";
+            box.style.left = pos+"px";
+          }//end if
+        }//end func
+      }//end func
+
+    }//end window
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	var calcu=[" + "," - "," * "," / "];
+	var tds;
+	window.onload=function(){
+		var list=[];
+		for(var idx=0;idx<4;idx++){
+			var num01=parseInt(Math.random()*10);
+			var num02=parseInt(Math.random()*10);
+			var cal=parseInt(Math.random()*4);
+			list.push({num1:num01,num2:num02,ca:cal});
+		}
+		
+		tds=document.getElementsByTagName("td");
+		for(var idx=0;idx<tds.length/3;idx++){
+			tds[idx*3].innerHTML=(idx+1);
+			tds[idx*3+1].innerHTML=list[idx].num1+calcu[ list[idx].ca ]+list[idx].num2;
+			tds[idx*3+2].innerHTML="<a href='"+"javascript:cal("+list[idx].num1+","+list[idx].ca+","+list[idx].num2+","+(idx*3+2)+")'>정답출력</a>";
+
+		}
+	};
+	function cal(){
+		
+		var result=[
+		arguments[0]+arguments[2],
+		arguments[0]-arguments[2],
+		arguments[0]*arguments[2],
+		arguments[0]/arguments[2]];
+		var show=arguments[0]+calcu[ arguments[1] ]+arguments[2]+"="+result[arguments[1]] ;
+		// td의 위치...
+		tds[ arguments[3] ].innerHTML=result[arguments[1]];
+		
+	}
+
+  //-->
+  </script>
+ </head>
+ <body>
+	<table align="center" width="400" height="400" border>
+		<tr><th>NO</th><th>문제</th><th>정답</th></tr>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+	</table>
+  
+ </body>
+</html>

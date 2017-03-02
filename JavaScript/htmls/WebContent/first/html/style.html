@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>style.html</title>
+<style>
+* { line-height: 160%; }				/* 전체 선택자 */
+p { color: blue; }						/* 타입 선택자 */
+table { width: 400px; 
+		border:dashed gray 1px;
+		margin-left: auto;
+		margin-right: auto; }
+
+
+#p1 { color: red; }						/* 아이디 선택자 */
+
+
+.p2 { background-color: lightblue; }	/* 클래스 선택자 */
+.step {background-color: #EDE37B;
+       list-style: none;}
+.step > li {background-color: #C49EE8;
+		    float: left; 
+		    border:  3px outset orange;
+		    padding-left: 10px;
+		    padding-right: 10px;
+		    border-radius:  10px 10px 0px 0px;}
+		    
+h1 , h2 { color: orange; } 				/* 그룹 선택자 */
+h2 > em { color: red; } 				/* 자식 선택자 */
+div em { background-color: lime; } 		/* 후손 선택자 */
+h2 ~ p { background-color: pink; } 		/* 형제 선택자 */
+
+
+input[type] { width: 100px;			 	/* 속성 선택자 */
+		border: 1px solid pink;}
+button { border: siler; 
+		 width: 60px;
+		 font-size: 10px;	}				
+a {text-decoration: none;}		/* 의사 선택자 */
+a:LINK { color: lime;}
+a:VLink { color : blue;}
+a:ACTIVE {color: pink; background-color: navy;}
+a:HOVER { color: silver; background-color: purple;}
+
+tr:NTH-CHILD(2n-1) { background-color: silver;}
+td:NTH-CHILD(1) { background-color: gold;}
+</style>
+<link rel="stylesheet"
+	  type="text/css"
+	  href="../style/style.css">
+
+
+</head>
+<body>
+
+
+<h1>CSS: cascading Style Sheet</h1>
+브라우저마다 다르게 구현<br />
+-webkit- : 사파리, 크롬 <br />
+-moz- : 모질라, 파이폭스<br>
+-o- : 오페라 <br />
+-ms- : 익스플로러 <br />
+
+<hr />
+<pre>
+	selector { 속성이름 : 속성값 }
+	selector { 속성이름1 : 속성값1; 
+			     속성이름2 : 속성값2; 
+			 	 ......
+	     	    속성이름n : 속성값n; }	 
+ 	
+ 	selector는 스타일의 적용 대상 
+ 	참고:https://www.w3.org/TR/css3-selectors/#selectors
+ 	
+ 	전체 선택자 	 * 		페이지 내의 모든 요소에 적용
+ 	타입 선택자 	태그명  	적용할 HTML 태그에 
+ 	아이디 선택자 	#아이디 	HTML 태그에 부여된 id 속성
+ 					선택시 사용
+ 					하나의 요소만 선택 가능
+ 	클래스 선택자	.클래스		HTML 태그에 부여된 class 속성
+ 					여러 개의 요소 선택 가능
+ 	
+ 										
+ 	그룹 선택자		,	로 구분하여 선택자를 나열
+ 	자식 선택자		>	로 구분하여 선택자를 나열
+ 	후손 선택자 		공백	로 구분하여 선택자를 나열
+ 	형제 선택자		~	로 구분하여 선택자를 나열	
+ 	
+ 	
+ 	속성 선택자     태그이름[]	특정 속성을 갖는 요소 선택
+ 	의사 선택자		: 	정의되어 있는 것처럼 간주하여 선택
+ 
+ --------------------------------------------------
+ 스타일 적용 순서
+ 1. 브라우저 기본값
+ 2. 외부 스타일 시트
+ 3. 내부 스타일 시트
+ 4. 인라인 스타일 시트
+ 	
+ 
+ </pre>
+ <ul class="step">
+ 	<li>약관 동의</li>
+ 	<li>정보 동의</li>
+	<li>가입 완료</li>
+ </ul>
+ <br />
+ <ul id="step2">
+ 	<li>약관 동의</li>
+ 	<li>정보 동의</li>
+	<li>가입 완료</li>
+ </ul>
+  
+ 
+ 
+ <!-- 테이블의 가로 크기를 400px,
+        선은 1px로 지정하고, 가운데 정렬을
+         스타일로 처리 -->
+ <table style="background-color: pink;">
+<caption align="bottom">TABLE</caption>
+<tr bgcolor="lightblue">
+	<th>태그이름</th>
+	<th>설명</th>
+	<th>비고</th>
+</tr>
+<tr>
+	<td>&lt;table&gt;</td>
+	<td>테이블을 정의</td>
+	<td></td>
+</tr>
+<tr>
+	<td>&lt;caption&gt;</td>
+	<td>테이블의 제목표시</td>
+	<td></td>
+</tr>
+<tr>
+	<td>&lt;tr&gt; (table row)</td>
+	<td>테이블 내에 한 행 정의</td>
+	<td></td>
+</tr>
+<tr>
+	<td>&lt;th&gt; (table heading)</td>
+	<td>셀 제목으로 지정하여 강조 처리</td>
+	<td></td>
+</tr>
+<tr>
+	<td>&lt;td&gt; (table data)</td>
+	<td>실제 데이터 표시</td>
+	<td></td>
+</tr>
+</table>
+
+ <a href="#">HOME</a>
+ 
+ <form action="main.html"
+      method="post">
+
+	아이디      <input type="text" name="user_id" 
+   			 maxlength="10" size="12"><br>
+	비밀번호   <input type="password" name="user_pw"
+    		 maxlength="10" size="12"> <br>
+	<button formaction="terms.html" formmethod="get">회원가입</button>
+	<button formaction="main.html" formmethod="get">로그인</button><br>
+<a href="#">[아이디/비밀번호 찾기]</a>
+
+
+    	
+</form>
+ 
+ <h1>headline1</h1>
+ <h2>head <em>line</em>2</h2>
+ <p>형제1</p>
+ <p>형제2</p>
+ <div>
+ 	형제3
+ 	<p>그리고
+ 		<em>emphasized</em>
+ 	</p>
+ </div>
+ 
+ 
+ <p>p</p>
+ <p id="p1">p1</p>
+ <p class="p2">p2</p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</body>
+</html>

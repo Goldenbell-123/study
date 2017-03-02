@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    /* jquery
+      fadeIn(),
+      fadeOut(),
+      slideUp(),
+      slideDown(),
+       animate()*/
+    #show{
+      float: left;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    #hide{
+      float: left;
+      cursor: pointer;
+    }
+    .box{
+        float: left;
+        clear: both;
+        width: 100px;
+        height: 50px;
+        background-color: #cae66f;
+        border: 1px solid #8a85e8;
+        margin: 50px;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <b id="show">show click</b>
+  <b id="hide">hide click</b>
+  <div class="box">
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script type="text/javascript">
+      $(function(){
+          // $("#show").click(function(){
+          //   $('.box').fadeIn('slow');
+          // });
+          // $("#hide").click(function(){
+          //   $('.box').fadeOut(1000);
+          // })
+          $("#show").click(function(){
+            $('.box').slideDown('slow');
+          });
+          $("#hide").click(function(){
+            $('.box').slideUp(1000);
+          })
+      });
+  </script>
+</body>
+</html>

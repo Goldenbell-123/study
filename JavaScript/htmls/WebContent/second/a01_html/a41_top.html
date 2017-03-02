@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+  <title>Document</title>
+  <style type="text/css">
+	input,select{font-size:30pt;text-align:center;}
+  </style>
+	<script type="text/javascript">
+	<!--
+		function calcu(){
+			var num01Int=parseInt(document.frm.num01.value);
+			var num02Int=parseInt(document.frm.num02.value);
+			var calIdx=parseInt(document.frm.cal.value);
+			var result=[num01Int+num02Int,num01Int-num02Int,
+			            num01Int*num02Int,num01Int/num02Int];
+			var cal=[" + "," - "," * "," / "];
+			var show=num01Int+cal[calIdx]+num02Int+" = "+result[ calIdx ];
+			parent.main01.document.body.innerHTML="<h1 align='center'>"+show+"</h1>";
+		}
+	//-->
+	</script>
+ </head>
+ <body bgColor="pink"><center>
+	<h1>계산기</h1>
+	<form name="frm">
+		<input type="text" name="num01" size="1"/>&nbsp;&nbsp;&nbsp;&nbsp;
+		<select name="cal">
+			<option value="0"> + </option>
+			<option value="1"> - </option>
+			<option value="2"> * </option>
+			<option value="3"> / </option>
+		</select>&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="num02"  size="1"/>
+		<br>
+		<input type="button" value="계산" 
+			onclick="javascript:calcu()"/>
+	</form>
+ </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script src="./resource/script/utill.js"></script>
+  <script type="text/javascript">
+    // function a(){
+    //   //공통의 로직 처리를 함
+    //
+    // }
+    //
+    // var obj = {
+    //   setName : function(){
+    //
+    //   }
+    // };
+
+    // var mem = new Member("정섭","임");
+    // Member.prototype.getName = function(){
+    //   return this.lastName+" "+this.firstName ;
+    // }
+    // alert(mem.getName());
+  /* prototype을 이용한 속성 추가*/
+    Member.prototype = {
+      getName : function(){
+        return this.lastName+" "+this.firstName;
+      },
+      setName : function(firstName , lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+      },
+      gender : '남자'
+    };
+    var mem = new Member("정섭","임");
+    alert(mem.getName());
+    mem.setName("지성","김");
+    alert(mem.getName());
+    alert(mem.gender);
+
+    /*prototype을 이용한 상속*/
+    function Parent(name){
+      this.name = name || 'Jade';
+
+    }
+    Parent.prototype.say = function() {
+      return this.name;
+    }
+    function Child(name){
+      Parent.apply(this.arquments);
+    }
+    Child.prototype = new Parent();
+    // var kid = new Child();
+    // kid.name="toy";
+    // alert(kid.say());
+    var kid = new Child('Toy');
+    alert(kid.name);
+
+    /* 다중상속을 이용한 생성자 빌려쓰기*/
+    function Cat(){
+      this.legs = 4;
+      this.say = function(){
+        return "meaowww";
+      }
+    }
+    function Bird(){
+      this.wings = 2;
+      this.fly = true;
+    }
+    function CatWings(){
+      Cat.apply(this);
+      Bird.apply(this);
+    }
+    var obj = new CatWings();
+    alert(obj.legs);
+    alert(obj.wings);
+    alert(obj.say());
+    alert(obj.fly);
+  </script>
+
+
+
+
+
+
+</body>
+</html>

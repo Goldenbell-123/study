@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	window.onload=function(){
+		
+	};
+	// 물건을 만들기..
+	var product={};
+	// 물건에 속성지정.
+	product.name="사과";
+	product.cnt=5;
+	// 장바구니에 물건 담기..:여러 물건을 담기에 배열.
+	var cart=[];
+	// 카드에 물건 담기1
+	cart.push(product);
+	// 객체가 새롭게 하나 생성, 물건..={}
+	product={};
+	// 물건명을 지정하고 "바나나"
+	product.name="바나나";
+	// 갯수를 지정하고 3
+	product.cnt=3;
+	// 카트에 물건 담기2.
+	// 배열객체[지정한 index번호] = 생성한 객체.
+	cart[1]=product;
+
+	//alert("현재 카트에 담긴 물건의 갯수:"+cart.length);
+	//alert("두번째 물건명과 물건의 갯수:"+cart[1].name+":"+cart[1].cnt);
+	// 객체를 문자열로 변환처리..
+	// JSON.stringify(객체)
+	var cartStr =JSON.stringify(cart);
+	// 크롬에서 지원
+	var store = window.localStorage;
+	store.setItem("cart",cartStr);
+	alert("저장완료");
+
+  //-->
+  </script>
+ </head>
+ <body>
+	<center>
+	<a href="c05_objArray.html">다음페이지</a>
+ </body>
+</html>

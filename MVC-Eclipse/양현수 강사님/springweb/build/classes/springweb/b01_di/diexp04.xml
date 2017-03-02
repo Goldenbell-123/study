@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd" >
+    <bean id="man" class="springweb.z01_vo.Person">
+    	<constructor-arg value="마길동"/>
+    	<constructor-arg value="27"/>
+    </bean> 
+	<bean id="woman01" class="springweb.z01_vo.Woman">
+		<property name="name" value="홍리나"/>
+		<property name="location" value="서울 강남"/>
+	</bean>
+
+<!-- 
+
+Person 객체에서 다음과 같이 출력처리..
+	introduce() 이름 @@@는 나이가 @@이고, 여자친구 이름은 @@@입니다.
+Woman 객체를 
+	byName으로 할당하여.. 호출함
+	byType으로 할당하여 호출 처리
+A04_DI_Exp.java 처리
+ -->
+	
+</beans>       

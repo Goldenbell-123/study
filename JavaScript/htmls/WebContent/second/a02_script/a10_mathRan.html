@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	var games=["가위","바위","보"];
+	function game(obj){
+		
+		var ranIdx=parseInt(Math.random()*3);
+		obj.innerHTML=games[ranIdx];
+
+	}
+	function play(){
+		var p01Idx=parseInt(Math.random()*3);
+		var p02Idx=parseInt(Math.random()*3);
+		var result="";
+		if( p01Idx==p02Idx){
+			result="무승부";
+		}else if( (p01Idx+2)%3==p02Idx){
+			result="player01 승!!";
+		}else{
+			result="player02 승!!";
+		}
+		document.getElementById("player01").innerHTML="player01:"+games[p01Idx];
+		document.getElementById("player02").innerHTML="player02:"+games[p02Idx];
+		document.getElementById("resultId").innerHTML=result;
+		
+	}
+	function restart(){
+		document.getElementById("player01").innerHTML="가위바위보 게임 시작(player1)";
+		document.getElementById("player02").innerHTML="가위바위보 게임 시작(player2)";
+	}
+	// 결과표시: player01 승, player02 승, 무승부
+  //-->
+  </script>
+ </head>
+ <body>
+ <h1 align="center"  onclick="play()">가위바위보 게임!!</h1>
+ <h1 align="center" id="player01" onclick="game(this)">가위바위보 게임 시작(player1)</h1>
+ <h1 align="center" id="player02" onclick="game(this)">가위바위보 게임 시작(player2)</h1>
+ <h1 align="center" id="resultId"></h1>
+ <h1 align="center" onclick="restart()">다시 시작</h1>
+  
+ </body>
+</html>

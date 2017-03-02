@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	// 전역변수 : 모든 함수에 전체 영향을 미치는 변수를 말한다.
+	var tot=0;
+	function plus(){
+		// 지역변수 : 함수내부에서 연산처리로 해당 데이터 변경하는 것을 말한다.
+		var num01Obj=document.getElementById("num01");
+		var num01=parseInt(num01Obj.innerHTML);
+		num01++;
+		num01Obj.innerHTML=num01;
+		tot++;
+		document.getElementById("sum").innerHTML=tot;
+	}
+	function minus(){
+		var num02Obj=document.getElementById("num02");
+		var num02=parseInt(num02Obj.innerHTML);
+		num02++;
+		num02Obj.innerHTML=num02;
+		tot--;
+		document.getElementById("sum").innerHTML=tot;
+	}
+/*
+확인예제..
+
+아기돼지들이 먹은 사과!!
+  현재남은사과: 1000
+첫째돼지  둘째돼지  셋째돼지  ==> 클릭시.
+  0          0       0
+*/
+  //-->
+  </script>
+ </head>
+ <body>
+  <font size="20" onclick="plus()">더하기</font>:<font id="num01" size="20">0</font><br>
+  <font size="20" onclick="minus()">빼기</font>:<font id="num02" size="20">0</font><br>
+  <font size="20">합산결과:</font><font id="sum" size="20">0</font>
+ </body>
+</html>

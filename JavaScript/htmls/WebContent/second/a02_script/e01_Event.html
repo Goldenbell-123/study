@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 1. 화면을 onXXXX :  XXXX했을 때 처리할 함수내용..
+window.onload=function(){
+	
+};
+
+/*
+이벤트 : 마우스, 키보드 등으로 특정 모션으로 해당 처리 함수를
+호출하여 동적인 처리를 가능하게 하는 기능
+1. 화면 로딩과 화면 닫힐때..
+body onLoad
+2. 화면이 닫힐 때..
+body onUnload="함수"
+*/
+function welcome(){
+	alert("시작합니다!!!");	
+}
+function goodBye(){
+	alert("안녕히 가세요\n또 올꺼죠?");
+}
+//-->
+</script>
+</head>
+<!--
+html 안에.. onXXXX="javascript:호출할 함수명()"
+XXX 이벤트가 처리될 때, 해당함수를 호출..
+-->
+<body onLoad="javascript:welcome();"
+   onunload="javascript:goodBye();"
+>
+</html>

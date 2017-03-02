@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bag</title>
+
+<!--Css에서 가방 모양 설정-->
+<link rel="stylesheet" type="text/css" href="./css/bag.css">
+
+</head>
+<body id=body ondrop="drop(event)"  ondragover="dragOver(event)" >
+
+<!--스크립트에서 드래그앤 드랍 이벤트 설정-->
+<script type="text/javascript" src="./js/bag.js"></script>
+
+<!--테스트 객체 드래그 객체-->
+<img  src="../image/2.jpg" width="50" id="img-1"
+      draggable="true"
+      ondragstart="dragStart(event)">
+
+<!--가방 설정-->
+<div id = "inven" class="inven" ondragenter="notenter(event)" ondragover="dragOver(event)">
+
+</div>
+
+<!-- 중복 가능 , 밖으로 뺴기 기능,-->
+
+</body>
+</html>

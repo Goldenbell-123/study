@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- script 선언  -->
+	<!--  로드가 적게 걸릴 때  -->
+</head>
+<body>
+	<input type="text" name="id" id="id"><br>
+	<input type="text" name="pwd" id="pwd"><br>
+	<input type="text" name="name" id="name"><br>
+	<button id="testBtn">BUTTON</button>
+	
+	
+
+	<!--  script 선언  -->
+	<!-- 양이 많기 때문에 로드 걸리면 여기에다  씀 -->
+	<script type="text/javascript">
+		//window.alert("바로 실행");
+		// 변수, 함수 선언할 수있다.
+		var id = "jskim";
+		var age = 10;
+		var isMarrige = true;
+		
+		// xxxVO
+		var obj = { id : "jskim", pwd : "jskim" , name : "김지성"} //객체로 본다.
+		
+		// ArrayList<XXXVO>
+		var ary = [{id : "jskim", pwd : "jskim" , name : "김지성"},
+					{id : "jskim", pwd : "jskim" , name : "김치"},
+					{id : "jskim", pwd : "jskim" , name : "오돌"}
+		]
+		
+		var map = {
+			list01 : [
+				{id : "jskim", pwd : "jskim" , name : "김지성"},
+				{id : "jskim", pwd : "jskim" , name : "상상"},
+				{id : "jskim", pwd : "jskim" , name : "그이상"}
+				],
+			list02 : [
+				{id : "jskim", pwd : "jskim" , name : "너무해"},
+				{id : "jskim", pwd : "jskim" , name : "김치"},
+				{id : "jskim", pwd : "jskim" , name : "오돌"}
+			]
+		}
+		function testMsg() {
+			window.alert(id+" : "+age+" : "+isMarrige);
+			
+		}
+		
+		// 페이지 로딩이후 작업을 준비하는 영역
+		window.onload = function() {
+			var Btn = document.getElementById("testBtn").
+			Btn.onclick = function() {
+				/* document.getElementById('id').value = obj.id;
+				document.getElementById('pwd').value = obj.pwd;
+				document.getElementById('name').value = obj.name; */
+				//testMsg();
+				for(var i=0;i<ary.length;i++){
+					window.alert(ary[i].name);
+				}
+			};
+		}
+		
+	</script>
+</body>
+</html>

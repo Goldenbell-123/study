@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+	// call()
+	// 화면에서 this라는 키워드를 통하여 객체를 전달 했기 때문에 가능..
+	function call( obj ){
+		//alert( obj.innerHTML );
+		obj.innerHTML="text 변경!! 반가워요!!";
+		obj.style.background="yellow";
+		// 화면에 id값(id="h2Id")으로 설정된 객체를 지정한다.
+		var h2Id=document.getElementById("h2Id");
+		h2Id.innerHTML="당연하지요!!";
+		h2Id.align="right";
+		// Elements 복수..
+		var tds=document.getElementsByTagName("td");
+		for(var idx=0;idx<tds.length;idx++){
+			tds[idx].width="25%";
+			if(idx%4==0)
+			tds[idx].innerHTML="데이터를 입력!";
+		}
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+
+ <h1 align="center"  onclick="javascript:call( this );">클릭하세요..</h1>
+ <h2 id="h2Id">이것도 controller 되는가?</h2> 
+ <table align="center" border="1" width="200pt" height="200pt">
+	<tr><td></td><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+ </table>
+ </body>
+</html>
+<!-- 
+ 1단계
+	회원등록
+이름     : [     ]  
+     [등록]
+   등록된 회원
+      @@@
+	  @@@
+	  @@@
+2단계
+	회원등록
+이름     : [     ]  
+생년월일 : [     ]
+사는곳   : [    ]
+취미     : [   ]
+     [등록]
+	      등록된 회원 list
+NO   이름   생년월일  사는 곳  취미
+1     @@@    @@@@      @@@@    @@@
+2     @@@    @@@@      @@@@    @@@
+
+-->

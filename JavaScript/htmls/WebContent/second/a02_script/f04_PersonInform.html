@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var name= opener.document.getElementById("searchbar").value;
+var tds= document.getElementsByTagName("td")
+window.onload= function(){
+	resultInform();
+};
+
+function resultInform(){
+	tds[0].innerHTML = name;
+	tds[1].innerHTML = "부서";
+}
+
+function opensearch(){
+    opener.document.getElementById("sub").innerHTML = name+"(부서)"; 
+	this.close();	
+}
+
+</script>
+</head>
+<table>
+	<tr><th>이름</th><td></td></tr>
+	<tr><th>부서</th><td></td></tr>
+</table>
+<input type="button" value="확인" onclick="javascript:opensearch()">
+
+<body>
+
+</body>
+</html>

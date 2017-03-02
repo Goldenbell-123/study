@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+<script type="text/javascript">
+<!--
+	/* 2단계 숙제..
+	카드 52개를 배열에 담고..
+	prompt창 2번으로 team이름을 담고,
+	A팀 카드 @, @, @, @, @, @, @  ♠4, ♣3,
+	B팀 카드 @, @, @, @, @, @, @
+   3단계
+    카드 52개 중복 없이..
+*/
+	var cards=[];
+	window.onload=function(){
+		makeCard(); // 일단 52 만듦
+		//alert(cards);
+		play();
+		
+	};
+
+	function play(){
+		var players=[]; // game하는 플레이어 배열..ex) 2명
+		var player={}; // 한명당 처리할 내용..
+		var ranCardIdx;
+		var tds=document.getElementsByTagName("td");
+		var tdIdx=0;
+		for(var cnt=1;cnt<=2;cnt++){
+			player={};
+			ranCardIdx=[];
+			player.name=prompt(cnt+"번째 팀명","A");
+			for(var idx=0;idx<52;idx++){
+				ranCardIdx[idx]=parseInt( Math.random()*52 );
+				for(var odx=idx-1;odx>=0;odx--){
+					if( ranCardIdx[odx]==ranCardIdx[idx] ){
+						idx--;	
+					}
+				}
+			}
+			player.cards=ranCardIdx;
+			players[cnt-1]=player;
+			for(var cardCnt=1;cardCnt<=8;cardCnt++){
+				tds[tdIdx].align="center";
+				if(tdIdx%8==0){
+					tds[tdIdx].innerHTML=player.name;
+				}else{
+					tds[tdIdx].innerHTML=cards[ player.cards[cardCnt-1] ];
+				}
+				tdIdx++
+			}
+
+		}
+
+
+	}
+	function makeCard(){
+		var cidx=0;
+		var shape=["♠","♣","◈","♥"];
+		var number=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+		for(var idx=0;idx<shape.length;idx++){
+			for(var odx=0;odx<number.length;odx++){
+				cards[cidx++]=shape[idx]+number[odx];
+			}
+		}
+	}
+
+//-->
+</script>
+
+ </head>
+ <body>
+  <table align="center" width="400" height="100" border="1">
+	<tr>
+		<td></td>
+		<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	</tr>
+  </table>  
+ </body>
+</html>

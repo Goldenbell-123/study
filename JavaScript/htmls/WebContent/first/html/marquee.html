@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>marquee.html</title>
+</head>
+<body bgcolor = "lightgreen">
+<!-- 문서의 배경색 지정 -->
+<!-- 헤드라인으로 가운데 정렬 -->
+<h1 align="center">흘러가는 문자</h1>
+
+<!-- 수평선 구분자
+너비: 화면의 80% 정도
+초록색으로 높이는 10픽셀로 지정
+ -->
+  <hr width="80%" color="green" height="100px"> 문자입니다1. 
+ <!-- 글씨 -->
+ <br>
+<marquee bgcolor="navy"
+         behavior="scroll"
+         scrolldelay="500">
+         
+    <font color="white" size="+2">
+    <b>marquee - scroll</b></font>
+    </marquee>    <br>
+ <br>     
+
+
+<marquee bgcolor="navy"
+         behavior="alternate"
+         direction="up"
+         height="100">
+    <font color="white" size="+2">
+    <b>alternate,up</b></font>
+    </marquee>
+    <br>
+    
+<marquee bgcolor="navy"
+         behavior="slide"
+         direction="down"
+         height="100"
+         loop="4"
+         >
+    <font color="white" size="+6">
+    <b>slide,down</b></font>
+    </marquee>
+    <br>
+<a href="../index.html">index.html</a>    
+</body>
+</html>

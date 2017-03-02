@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload= function(){
+
+};
+function moveObj(){
+	
+	// 윈도우 창열기..
+	var moveWin=window.open("","","width=300,height=200");
+	
+	// 초기 위치 설정..(절대위치)
+	moveWin.moveTo(0,0);
+	
+	// 1초마다 이동 처리..
+	// moveBy(X축, Y축) x,y 상대적 위치 이동..
+	setInterval( function(){
+		moveWin.moveBy(10,10);
+	}, 500);
+}
+
+function reSizeObj(){
+	var resizeWin = window.open("","","width=300,height=200");
+	
+	//alert(screen.width+":"+screen.height);
+	// screen.width:해상도X, screen.width:해상도Y
+	var width=screen.width;
+	var height=screen.height;
+	
+	// 최왼쪽 상단으로 이동..
+	resizeWin.moveTo(0,0);
+	
+	// resizeTo(넓이,높이) : 절대 크기.. 
+	resizeWin.resizeTo(width,height);
+
+	// resizeBy(상대크기로증감,상대크기로증감)
+	// 1초마다 크기가 작아지게 처리..
+	setInterval( function(){
+		// 20씩 작아지게 처리..
+		resizeWin.resizeBy(-20,-20);
+		resizeWin.moveBy(10,10);
+	}, 500);
+}
+/*
+숙제..
+1단계
+오른쪽에서 왼쪽으로  <---- 
+중앙에서 점점 크지게..
+
+2단계
+초기화면  200, 200 중앙에 win창 로딩..
+화살표 위 점점커지게
+화살표 아래 점점 작아 지게
+화살표 왼쪽 왼쪽 방향으로 10씩 이동
+화살표 오른쪽 오른쪽 방향으로 10씩 이동
+
+
+*/
+//-->
+</script>
+</head>
+<body><center>
+<h1 onclick="javascript:moveObj();">대각선으로 이동하기</h1>
+<h1 onclick="javascript:reSizeObj();">크기 변동하기</h1>
+
+
+</body>
+</html>

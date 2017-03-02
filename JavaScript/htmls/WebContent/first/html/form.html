@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+</head>
+<body>
+<h2>입력 양식들</h2>
+서버로 데이터를 전송하기 위해 사용<br />
+form 태그를 사용 <br />
+<p>
+<h2>form 태그의 속성</h2>
+<ul>
+	<li>action : 이동 경로 url</li>
+	
+	<li>method<br>
+		데이터를 전송 방식을 지정한다. <br />
+		get(기본) 또는 post <br />
+		생략시 get</li>
+	<li>name : 폼의 이름</li>
+	<li>id : 폼의 아이디</li>
+</ul>
+
+<h2>전송 방식 </h2> 
+form 태그의 method 속성을 이용하여 지정<br>
+생략하면 get 방식으로 전송됨
+<hr>
+<H3>GET</H3> 
+URL 주소 뒤에 파라미터를 붙여서 데이터 전달<br> <!-- 노출가능한 정보 -->
+길이 제한/북마크/뒤로가기 O
+보안 X<p>
+
+<h3>POST </h3>
+HTTPRequest 헤더에 포함시켜서 전달<br>
+길이제한/북마크/뒤로가기X 보안 O<!-- 노출되면 안되는 정보 --> 
+<hr>
+<ul>
+	<li>input</li>
+		<ul>
+			<li>text : 문자열을 표시할수있는 텍스트 박스</li>
+			<li>password: 패스워드 입력할수 있는 박스</li>
+			<li>submit : 입력된 값을 제출하는 버튼</li>
+			<li>button : 사용자 지정의 버튼 생성</li>
+			<li>checkbox : 사용자가 체크할수있는 박스, 이름을 하나로 지정하면 같은 이름으로 넘어감<br>
+			 checked 입력해두면 체크가 된상태로 나타난다.</li>
+			<li>radio : 이름이 같아야 중복 체크가 안됨,체크박스와 같은 동그라미 버튼</li>
+			<li>file : 나중에 업로드를 구현해야됨</li>
+			<li>hidden: 사용자는 보이지 않지만 전송되어야되는 값은 히든속성을 사용하여 전송함</li>
+			<li>reset: 다시쓰기</li>
+			<li>image: 이미지는 이미지를 넣어 submit과 같은기능을 함</li>
+			<li>name : 서버에 데이터를 보낼때 파라미터의 이름으로 넘어간다. **꼭 써야됨</li>
+		</ul>
+	<li>textarea: 텍스트 입력 박스를 만든다.</li>
+	<li>select: 셀렉트를 만들 수 있는 창을 만든다.  optgroup을 하면 그룹으로 라벨화하여 여러 선택지를 나눌수 있다.</li>
+	<li>button: submit과 같은기능을 기본으로한다.<br>
+	 type속성에 button이라고 속성지정하면 제출하지 않는다.</li>
+	<li>label: 글씨를 클릭해도 선택지가 선택됨, 선택지의 id를 라벨의 for와 연결한다</li>
+	<li>fieldset: 박스를 만들어서 구분함 </li>
+	<li>lenged : 박스의 이름을 만듬</li>
+</ul>
+<hr>
+<h2>회원가입</h2>
+<form action="result.html"
+	  mathod="get">
+	  
+<fieldset>
+	<legend>필수항목</legend>  
+	ID : <input type="text" name="user_id" 
+   			 maxlength="10" size="8"></input><br>
+	PW  : <input type="password" name="user_pw"
+    		 maxlength="20" size="12"> </input><br>
+	PW 확인 : <input type="password" name="user_pw"
+    		 maxlength="20" size="12"> </input><br>
+</fieldset>    		 
+    		 
+<fieldset>
+	<legend>선택항목</legend>
+	취미: <input type="checkbox" name="hobby1" value="coding" checked>코딩
+		<input type="checkbox" name="hobby2" value="query">쿼리
+		<input type="checkbox" name="hobby3" value="typing">타이핑<br>    		
+
+	성별:  
+	<input type="radio" name="gender" value="m"
+			id="male">
+	<label for="male">남자</label>
+	<input type="radio" name="gender" value="f"
+			id="female">
+	<label for="female">여자</label><br>
+사진: <input type="file" name="photo"><br>
+
+자기소개: <br>
+<textarea name="userinfo" id="" cols="20" rows="10"></textarea><br>
+좋아하는 음악: 
+			<select name="music">
+				<optgroup label="spacial2">
+					<option value="rock">rock</option>
+					<option value="ballad">ballad</option>
+					<option value="pop">pop</option>
+				</optgroup>
+					<optgroup label="spcail2">
+					<option value="place1">england</option>
+					<option value="place2">canada</option>
+					<option value="place3">nudebeach</option>
+				</optgroup>
+			</select><br>
+가보고 싶은 곳:
+			<select name="where" size="3">
+			<option value="place1">england</option>
+			<option value="place2">canada</option>
+			<option value="place3">nudebeach</option>
+			</select><br>
+		</button>
+	</fieldset>
+			<input type="hidden" name="secret" value="1234">
+			<inpuT type="submit" value="회원가입">
+			<inpuT type="button" value="로그인">
+			<inpuT type="reset" value="다시쓰기">
+			<input type="image" 
+				   src="../imgs/icon.png" width="100px" height="100px"><br>
+		<button>버튼</button>
+		<button>
+			<img src="../imgs/cycle.jpg" width="50px" height="50px">
+
+</form>
+
+
+
+
+</body>
+</html>

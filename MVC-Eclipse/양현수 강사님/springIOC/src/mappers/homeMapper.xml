@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.home.user"><!-- 업무모듈의 이름이 들어가는게 일반적 -->
+	<!-- parametertype get메소드 #{id}같은것 resulttype set메소드 실행항쿼리를 담을 VO-->
+	<select id="login" parameterType="model.vo.TestVO"
+	resultType="model.vo.TestVO">
+		SELECT id,pwd,name
+		FROM HOME
+		WHERE ID=#{id} AND PWD=#{pwd}
+	</select>
+	<insert id="insert" parameterType="model.vo.TestVO">
+		INSERT INTO HOME
+		VALUES(#{id},#{pwd},#{name})
+	</insert>
+	<update id="update" parameterType="model.vo.TestVO">
+		UPDATE HOME
+		SET PWD=#{pwd}
+		WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="string">
+		DELETE HOME
+		WHERE ID=#{id}
+	</delete>
+	<select id="selectAll" resultType="model.vo.TestVO">
+		SELECT *
+		FROM HOME
+	</select>
+	
+</mapper>

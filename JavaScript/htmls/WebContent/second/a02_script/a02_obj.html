@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<script type="text/javascript">
+	<!--
+	// 객체 {} 임을 선언..
+		var person={};
+	// 속성 지정..
+	// 1) 초기 객체선언하면서 지정..
+	//    속성:속성값
+		var man={name:"홍길동"};
+	// 2) 선언한 후, 추가적으로 지정..
+		man.age=25;
+		alert(man.name+":"+man.age);
+/*
+fruit 객체 3개를 선언하고 속성값으로
+	kind : 과일종류
+	color : 과일색상
+	prdYear : 생산년도를 선언하고
+alert으로 아래 형식으로 출력하세요.
+	NO  과일    색상   생산년도
+	1   바나나  노랑    2016.10
+	2   딸기    빨강    2016.8
+	3   수박    초록    2016.7
+*/
+	var fruit01={kind:"바나나",color:"노랑",prdYear:"2016.10"};
+	var fruit02={kind:"딸기",color:"빨강",prdYear:"2016.8"};
+	var fruit03={};
+	fruit03.kind="수박";	
+	fruit03.color="초록";	
+	fruit03.prdYear="2016.7";	
+	var shows="NO\t과일\t색상\t생산년도\n";
+	var cnt=1;
+	shows+=(cnt++)+"\t"+fruit01.kind+"\t"+fruit01.color+"\t"+fruit01.prdYear+"\n";
+	shows+=(cnt++)+"\t"+fruit02.kind+"\t"+fruit02.color+"\t"+fruit02.prdYear+"\n";
+	shows+=(cnt++)+"\t"+fruit03.kind+"\t"+fruit03.color+"\t"+fruit03.prdYear+"\n";
+	alert(shows);
+	// json 배열선언  [];
+	var shows="NO2\t과일2\t색상2\t생산년도2\n";
+	var fruits=[fruit01,fruit02];
+	fruits[2]=fruit03;
+	for(var idx=0;idx<fruits.length;idx++){
+		shows+=(idx+1)+"\t"+fruits[idx].kind+"\t"+
+		                    fruits[idx].color+"\t"+
+							fruits[idx].prdYear+"\n";
+	}
+	alert(shows);
+
+	//-->
+	</script>
+ </head>
+ <body>
+  
+ </body>
+</html>

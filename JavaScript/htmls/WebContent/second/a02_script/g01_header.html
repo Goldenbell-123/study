@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload= function(){
+};
+	// 전역변수로 title 부분 설정..
+  var header;
+	window.onload = function(){
+		header = document.getElementById("header");
+		// 타이틀을 클릭할 때 이벤트 함수로 매핑..
+		// 대상객체.onclick=함수명 ex) 함수선언() -X 함수 body 선언 - 0
+		header.onclick = cal; // call()(x)
+													// call(){ 처리내용 표시};{O}
+	};
+	function call(){
+		haeder.style.backgroundColor="blue";
+		header.style.color="white";
+	}
+	// 화면에서 키를 입력할 떄, 이벤트...
+	window.onkeyup = function(){};
+</script>
+</head>
+<body>
+
+</body>
+</html>

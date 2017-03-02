@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript">
+  <!--
+/*
+	R=Math.random()의 범위  
+	0.0 <= R < 1.0
+*/
+	var colors=["red","orange","yellow","green","blue","navy","purple"];
+	var idx=0;
+	function callRan(obj){
+		var R=Math.random();
+		// 주사위
+		var rnum=parseInt( (R*6) +1);
+		obj.innerHTML=rnum;
+		obj.style.background=colors[ idx++%7 ];
+
+	}
+
+
+  //-->
+  </script>
+ </head>
+ <body>
+ <h1 align="center" onclick="callRan(this)">클릭하세요!</h1>
+  
+ </body>
+</html>
