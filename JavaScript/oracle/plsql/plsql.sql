@@ -1,0 +1,19 @@
+--연습문제 8
+/*
+CREATE OR REPLACE FUNCTION BIRTH_INFO_F
+RETURN VARCHAR2
+IS 
+BIRTH_NO VARCHAR2(20) := '19991111';
+BEGIN
+BIRTH_NO :=  SUBSTR(BIRTH_NO,1,4) ||'년 '|| 
+             SUBSTR(BIRTH_NO,5,2) || '월 ' || 
+             SUBSTR(BIRTH_NO,7) || '일';
+RETURN BIRTH_NO;
+END;
+/
+*/
+--연습문제 11.
+BEGIN 
+BIRTH_INFO_F;
+END;
+/

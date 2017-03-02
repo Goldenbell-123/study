@@ -1,0 +1,202 @@
+오라클 사용방법
+
+1.www.oracle.com
+
+2.buie4532@naver.com
+  Kim05******
+
+3.oracle database 11g expresions 다운
+
+4.셋업후 실행.(안되면 재부팅) 비번 알기쉽게 1111
+
+5.Application express 클릭
+
+6.sys로 로그인 비번은 설정했던것. 1111
+
+7.아이디 생성 dev 비번 1111
+
+
+si는 새로운것 찾는것
+-----------------------------------------------------------------
+
+1강 접속
+
+- HomeSQL > Workshop > Object Browser > tables > EMP
+
+(데이터 베이스 일하는사람은 보통 테이블에 있는 애들을 꺼내와서 쓴다.)
+
+
+- HomeSQL > Workshop > SQL Commands > desc emp > Run 클릭
+ (위와 동일)
+
+
+- 커맨드 입력 방식(SQL plus)
+
+ 시작 > SQL Command line > connect > dev > 1111(안보임) > desc emp; 
+ (위와 동일)
+
+-----------------------------------------------------------------
+
+보통 쿼리의 작업은 Insert , Delete , Update , Select 4가지 작업을 한다.
+이 작업들을 Crud 라고 한다.
+
+EMP과 DEPT 애들은 서로 연결되어있다.  내가할꺼랑 연결지어서 프로젝트를 진행하는게 좋음
+
+DEPTNO 는 써있는 숫자들로 제약이 걸림 그 숫자로 사용되야어야됨
+Ex(10/20/30/40)
+
+----------오늘 어떤걸 만들고 싶다.----------
+생각하고 오기
+
+-EMP > insert
+Insert INTO 테이블명 (컬럼명,...)
+            Values(값1,...)
+
+-----HR 계정------
+
+데이터 조회 Select 문
+
+1)기본 구문: select 컬럼명 From  테이블 명
+
+2)전체 컬럼 조회: Select *(*는 모든걸 불러온다) from employees
+
+3)특정 컬럼 조회: Select 컬럼1,컬럼2,... From employees
+
+4)컬럼에 별명 사용: SELECT 컬럼명 AS 별명
+                  FROM 테이블명
+
+5)컬럼에 별명 사용2: SELECT 컬럼명 AS "별 명"
+                  FROM 테이블명
+
+6)컬럼에 별명 사용3: 
+                    Select 컬럼명 "별명"
+                    From 테이블명
+
+7)중복 값을 제거하고 출력: 
+
+select DISTINCT(department_id) From employees
+
+
+8)정렬하여 출력하기: SELECT department_id FROM employees ORDER BY department_id DESC
+
+	SELECT 컬럼명
+	FROM 테이블명
+	ORDER BY 컬럼명 ASC(오름차순) 또는 DESC(내림차순)
+
+9)조건조회
+
+	SELECT 컬럼명
+	FROM 테이블명
+	WHERE Salary >= 조건문 
+	'날짜'(mm/dd/yyyy) 와 '문자' (실제 값들은 영문의 대소문자 구분하니 조심)
+---------------------------------------------------------------------------------
+연산자의 분류
+
+	1.산술연산자
+	  -양수, 음수 부호표시 : +,-
+	  -사칙연산: +, - ,* ,/
+
+	2. 결합연산자
+	  -두개의 문자열을 연결:||
+
+	3.집합 연산자
+	  -합집합: UNION
+	  -합집합에 대한 교집합: Union all
+	  -교집합: Intersect
+	  -차집합: Minus
+
+ 	4. 산술 비교 연산자: >,<,>=,<=
+
+	5. 논리 연산자
+	   부정: NOT
+	   동시 만조: AND
+	   부분 만족: OR
+
+	6. SQR 비교 연산자
+	  특정 문자열 포함 비교: LIKE
+				%(와일드카드): 갯수를 모를때
+				_: 나열될 갯수를 알때
+	  List 비교: IN
+
+연산자의 우선 순위 : 모든 비교연산자  > AND > OR
+		     같은 순위의 경우 좌에서 우로 적용 괄호가 항상 우선
+---------------------------------------------------------------------------------
+
+	연습1. Job_id가 'it_prog'인 사람들의 first_name, salary, 부서번호 출력
+	(이름을 오름차순으로 정렬)
+
+		SELECT job_id, first_name, salary, department_id "부서번호"
+		FROM employees
+		WHERE job_id = 'IT_PROG' 
+		Order by first_name
+
+	연습2. 2005년 이후에 입사한 사람들의
+	       first_name, salary, 부서번호 출력
+	       (입사일을 기준으로 정렬)	*01/01/2005
+
+		SELECT hire_date, first_name, salary, department_id "부서번호"
+		FROM employees
+		WHERE hire_date >= '01/01/2005'
+		Order by hire_date;
+
+	연습3. employee_id와 first_name을 공백으로 연결하고 
+		'사원정보'라는 별명으로 출력
+
+		SELECT employee_id || ' ' || first_name "사원정보"
+		FROM employees
+
+
+	연습4. 2005년도에 입사한 사람들의
+	[LIKE]	first_name, salary, 입사일, 부서번호 출력
+	[WHERE]	(입사일을 기준으로 정렬) 
+		
+		SELECT hire_date "입사일", first_name, salary, department_id "부서번호"
+		FROM employees
+		WHERE  hire_date >= '01/01/2005' 
+		AND hire_date < '01/01/2006'
+		Order by hire_date;
+	
+	연습5. salary가 10000에서 20000사이의
+		first_name, job_id,salary 검색
+		(salary로 정렬) AND 연산자, BETWEEN연산자
+	
+		SELECT job_id, first_name, salary
+		FROM employees
+		WHERE salary >= 10000 
+		AND salary <= 20000
+		(이것도 됨 WHERE salary BETWEEN 10000 AND 20000)
+		Order by salary;
+
+	연습6. department_id가 30, 60, 90인 사람들의 
+		department_id, first_name 출력 (OR 연산자, IN 연산자)
+
+		SELECT     department_id, first_name
+		FROM       employees
+		WHERE      department_id = 30 
+		OR         department_id = 60
+		OR         department_id = 90;
+		(이것도 됨 WHERE department_id IN(30,60,90)
+		
+	연습7. last_name이 K로 시작하는 사람들의
+		last_name, first_name, salary 출력
+
+		SELECT     last_name, first_name, salary
+		FROM       employees
+		WHERE      last_name LIKE 'K%'
+
+	연습8. last_name이 K로 시작하고 , g로 끝나는 4글자인 사람들의
+		last_name, first_name, salary 출력
+
+		SELECT     last_name, first_name, salary
+		FROM       employees
+		WHERE      last_name LIKE 'K__g'
+
+	연습9. phone_number가 가운데 번호가 500번대로 시작하는 사람들의
+		first_name, phone_number 출력
+
+		SELECT first_name, phone_number
+		FROM employees
+		WHERE phone_number LIKE '%.5%.%';
+
+	연습10. phone_number가 가운데 번호가 500번대이 아닌 사람들의
+		first_name, phone_number 출력

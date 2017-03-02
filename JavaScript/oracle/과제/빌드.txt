@@ -1,0 +1,33 @@
+INSERT INTO d_build
+VALUES( 'hospital','1' , 'builder', 'oasis')
+
+INSERT INTO d_build
+VALUES( 'oasis',30 ,'builder' ,'' )
+
+INSERT INTO d_build
+VALUES( 'market',10 ,'builder' ,'bank' )
+
+INSERT INTO d_build
+VALUES( 'bank', 20, 'builder', 'stock bank')
+
+INSERT INTO d_build
+VALUES( 'smith',10  ,'builder', 'attack 1' )
+
+INSERT INTO d_build
+VALUES( 'smith', 10 ,'builder', 'defence 1' )
+
+INSERT INTO d_build
+VALUES( 'barrack', 10 ,'builder', 'academy' )
+
+INSERT INTO d_build
+VALUES( 'academy',20  ,' builder', '' )
+
+INSERT INTO d_difficult
+VALUES( ' ',  ,' ', ' ' )
+
+
+INSERT INTO d_build
+VALUES( ' ',  ,' ', ' ' )
+
+INSERT INTO d_build
+VALUES( ' ',  ,' ', ' ' )

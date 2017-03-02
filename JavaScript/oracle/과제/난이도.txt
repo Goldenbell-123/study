@@ -1,0 +1,21 @@
+
+INSERT INTO d_difficult
+VALUES( 'nomal', 1, 'monster 1' )
+
+INSERT INTO d_difficult
+VALUES( 'nomal', 10, 'monster 2' )
+
+INSERT INTO d_difficult
+VALUES( 'nomal', 20 , 'monster3' )
+
+INSERT INTO d_difficult
+VALUES( 'hard', 40 , 'devil 1' )
+
+INSERT INTO d_difficult
+VALUES( ' ',  ,' ' )
+
+INSERT INTO d_difficult
+VALUES( ' ',  ,' ' )
+
+INSERT INTO d_difficult
+VALUES( ' ',  ,' ' )
