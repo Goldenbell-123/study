@@ -26,9 +26,14 @@ Dog.prototype.wag= function(){
   console.log('꼬리흔들기');
 };
 
+
+
 var fido = new Dog('피도', '잡종', 38);
 var fluffy = new Dog('플러피','푸들', 30);
 var spot= new Dog('스포트', '치와와', 10);
+
+
+
 spot.bark = function(){
   'use strict';
   console.log(this.name+'는 멍멍 짖어요!');
@@ -46,3 +51,12 @@ fluffy.wag();
 spot.bark();
 spot.run();
 spot.wag();
+
+var barnaby = new Dog('바나비', '바셋 하운드', 55);
+
+Dog.prototype.sit = function(){
+  'use strict';
+  console.log(this.name + '가 앉아 있습니다.');
+};
+
+barnaby.sit();
