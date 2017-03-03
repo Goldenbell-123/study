@@ -15,7 +15,7 @@ Robot.prototype.speak = function(){
 
 Robot.prototype.makeCoffee = function(){
   'use strict';
-  console.log('스타벅스에서 커피를 만듭니다.');
+  console.log('커피를 만듭니다.');
 };
 
 Robot.prototype.blinkLights = function(){
@@ -30,7 +30,11 @@ var rosie = new Robot('rosie',1962,'조지 제트슨');
 robby.onOffSwitch = true;
 robby.makeCoffee = function(){
   'use strict';
-  console.log('커피를 가져옵니다.');
+  if(this.onOffSwitch){
+    console.log('스타벅스에서 커피를 가져옵니다.');
+  }else{
+    console.log('작동을 멈춥니다.');
+  }
 };
 
 rosie.cleanHouse = function(){
@@ -38,11 +42,11 @@ rosie.cleanHouse = function(){
   console.log('집안 청소를 합니다.');
 };
 
-console.log(robby.name + '는'+ robby.maker + '에 의해' + robby.year +
-            '년에 생산되었고,' + robby.owner + '가 소유하고 있습니다.');
+console.log(robby.name + '는 '+ robby.maker + '에 의해 ' + robby.year +
+            '년에 생산되었고, ' + robby.owner + '가 소유하고 있습니다.');
 
 robby.makeCoffee();
 robby.blinkLights();
-console.log(rosie.name + '는 ' + rosie.maker + '에 의해' + rosie.year +
+console.log(rosie.name + '는 ' + rosie.maker + '에 의해 ' + rosie.year +
             '년에 생산되었고, '+ rosie.owner + '가 소유하고 있습니다.');
 rosie.cleanHouse();
