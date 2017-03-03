@@ -6,6 +6,15 @@ function Robot(name, year, owner){
 }
 
 Robot.prototype.maker = '오브젝트자러스';
+Robot.prototype.errorMessage = '전체 시스템 작동 중';
+Robot.prototype.reportError = function(){
+  'use strict';
+  console.log(this.name + ' 메세지 : '+ this.errorMessage);
+};
+Robot.prototype.spillWater =function(){
+  'use strict';
+  this.errorMessage = '회로가 합선된 것 같습니다!';
+};
 
 Robot.prototype.speak = function(){
   'use strict';
@@ -50,3 +59,14 @@ robby.blinkLights();
 console.log(rosie.name + '는 ' + rosie.maker + '에 의해 ' + rosie.year +
             '년에 생산되었고, '+ rosie.owner + '가 소유하고 있습니다.');
 rosie.cleanHouse();
+
+
+
+rosie.reportError();
+robby.reportError();
+robby.spillWater();
+rosie.reportError();
+robby.reportError();
+
+console.log(robby.hasOwnProperty('errorMessage'));
+console.log(rosie.hasOwnProperty('errorMessage'));

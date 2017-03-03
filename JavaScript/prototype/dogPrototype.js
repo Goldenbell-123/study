@@ -60,3 +60,26 @@ Dog.prototype.sit = function(){
 };
 
 barnaby.sit();
+
+Dog.prototype.sitting = false;
+
+Dog.prototype.sit = function(){
+  'use strict';
+  if(this.sitting){
+    this.sitting = false;
+    console.log(this.name + '는 이미 앉아 있습니다');
+    console.log(this.name + '는 이제 일어섭니다.');
+
+  }else{
+    this.sitting= true;
+    console.log(this.name + '가 앉습니다.');
+  }
+};
+
+barnaby.sit();
+barnaby.sit();
+
+spot.sit();
+spot.sit();
+//hasOwnProperty 객체가 상속(오버라이드) 될 때 생기는 속성메서드
+console.log('hasOwnProperty : '+spot.hasOwnProperty('sitting'));
