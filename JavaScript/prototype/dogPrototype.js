@@ -83,3 +83,56 @@ spot.sit();
 spot.sit();
 //hasOwnProperty 객체가 상속(오버라이드) 될 때 생기는 속성메서드
 console.log('hasOwnProperty : '+spot.hasOwnProperty('sitting'));
+
+
+
+
+//////show dog 만들기
+
+var adog = new Dog();
+
+function ShowDog(name, breed, weight, handler){
+  'use strict';
+  Dog.call(this, name,  breed, weight);
+  this.handlert= handler;
+}
+
+ShowDog.prototype = new Dog();
+ShowDog.prototype.constructor = ShowDog;
+ShowDog.prototype.league= '웹타운';
+
+ShowDog.prototype.stack = function(){
+  'use strict';
+  console.log('차렷');
+
+};
+
+ShowDog.prototype.bait = function () {
+  'use strict';
+  console.log('간식');
+
+};
+
+ShowDog.prototype.gait = function(kind){
+  'use strict';
+  console.log(kind + '하는중');
+
+};
+
+ShowDog.prototype.groom = function(){
+  'use strict';
+  console.log('빗질');
+};
+
+
+var scotty = new ShowDog('스카티', '스코틀랜드 테리어', 15, '쿠키');
+var beatrice = new ShowDog('베트리아체','포메리안', 5, '해밀튼');
+
+console.log(scotty.league);
+console.log(scotty.species);
+
+scotty.stack();
+scotty.bark();
+beatrice.bark();
+scotty.gait('걷기');
+beatrice.groom();
