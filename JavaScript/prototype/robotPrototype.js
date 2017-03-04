@@ -70,3 +70,10 @@ robby.reportError();
 
 console.log(robby.hasOwnProperty('errorMessage'));
 console.log(rosie.hasOwnProperty('errorMessage'));
+
+
+//객체생성 당시 내부 메소드 toString(), hasOwnProperty();
+console.log(robby.toString());
+console.log(rosie.toString());
+
+//object 로 나오기 떄문에 적당하게 바꿔주는게 필요.

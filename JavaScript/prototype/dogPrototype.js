@@ -89,12 +89,11 @@ console.log('hasOwnProperty : '+spot.hasOwnProperty('sitting'));
 
 //////show dog 만들기
 
-var adog = new Dog();
 
 function ShowDog(name, breed, weight, handler){
   'use strict';
   Dog.call(this, name,  breed, weight);
-  this.handlert= handler;
+  this.handler= handler;
 }
 
 ShowDog.prototype = new Dog();
