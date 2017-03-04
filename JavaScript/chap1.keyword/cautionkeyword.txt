@@ -1,0 +1,15 @@
+/// 쓰면안되는 변수 명
+
+
+break               catch               const                 instanceof
+delete              else                export                return
+for                 if                  import                typeof
+let                 package             protected             default
+super               this                true                  finally
+void                with                continue              interface
+case                class               extends               static
+do                  enum                in                    var
+function            implments           public
+new                 private             try
+switch              throw               debugger
+while               yield               false
