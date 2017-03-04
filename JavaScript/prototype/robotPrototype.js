@@ -77,3 +77,37 @@ console.log(robby.toString());
 console.log(rosie.toString());
 
 //object 로 나오기 떄문에 적당하게 바꿔주는게 필요.
+
+
+
+//연습문제 SpaceRobot
+
+function SpaceRobot(name, year, owner, homePlanet){
+  'use strict';
+  Robot.call(this, name, year, owner);
+  this.homePlanet = homePlanet;
+}
+
+SpaceRobot.prototype = new Robot();
+
+SpaceRobot.prototype.speak = function(){
+'use strict';
+  alert(this.name + ' : 제가 의견을 말해도 된다면 ...');
+
+};
+
+SpaceRobot.prototype.pilot = function(){
+'use strict';
+  alert(this.name + ' : 추진체요? 그게 중요한가요?');
+};
+
+var c3po = new SpaceRobot('C3PO', 1977, '루크','타투인');
+
+c3po.speak();
+c3po.pilot();
+console.log(c3po.name + '는' + c3po.maker + '가 만들었습니다.');
+
+var simon = new SpaceRobot('사이몬', 2009, '칼라 다이아나', '칼라 다이아나');
+simon.makeCoffee();
+simon.blinkLights();
+simon.speak();
