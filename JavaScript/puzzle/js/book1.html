@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1장</title>
+
+  <style media="screen">
+    font{ color: #2983b5; font-weight: bold; }
+    li{ font-weight: bold; }
+    td{ width: 30px; height: 30px; border: 1px solid; border-color: #987562; border-radius: 5px; font-size: 17px; text-align:center; }
+    th{ width: 30px; height: 30px; background-color: #175077; border-radius: 2px; }
+    table{ border: 1px solid }
+
+    .puzzlebox:hover{
+      background-color: #00eb65;
+    }
+
+
+
+
+  </style>
+
+</head>
+<body>
+
+  <ul>
+    <li>자바스크립트</li>
+      <ul>js는 웹 페이지에 <font>동적 기능</font>을 추가하기 위해 사용된다.</ul><br>
+      <ul>외부 .js 파일을 연결하려면 &lt;script src=" js 파일 주소 ">&lt;/script&gt;로 사용할 수 있다.<br>src로 불러온 스크립트 내부에는 그 어떤 내용도 적을 수 없다. ( 주로 "./root/*.js" 경로로 활용한다. )</ul><br>
+      <ul>js는 주로 웹 페이지를 움직이기 위해 사용되지만, 포토샵, 오픈오피스, 구글 앱스, 서버 프로그래밍에서도 어플리케이션 스크립트를 작성하기 위해 사용될 수 있다.</ul><br>
+      <ul>변수를 선언할 때 시작부에는 반드시 ( 문자, _ , $) 로 시작한다. ( 하지만, 추후 Jquery와의 혼동이 없도록 $는 쓰지 않는다. )</ul>
+      <ul>Camel Case : 낙타의 등 처럼 울록볼록한 모양의 형태 ex) <b>userName</b> </ul>
+      <ul>Underbar Case : 단어마다 _ 를 이어주며 변수명을 짓는 형태 ex) <b>user_name</b> </ul>
+      <br><br><br>
+
+
+
+        <ul>
+          <li>이번 장에서 나온 몇가지 기능들</li>
+          <ul>var</ul>
+          <ul>while</ul>
+          <ul>document.write();</ul>
+          <ul>console.log();</ul>
+          <ul>if/else</ul>
+          <ul>var dog = {name : "땡칠이", weight : 35}</ul>
+          <ul>setTimeout(function, 1/1000s);</ul>
+          <ul>&lt;script src=".js"&gt; &lt;/script&gt;</ul>
+        </ul>
+
+
+
+
+      </tablee>
+
+      <br><br><br>
+
+      <table>
+        <!--1 -->
+        <tr>
+          <th></th><th></th><th></th><td onclick="sero1()" id="sero_1_1" class="puzzlebox"><sup><sup><sup>1</sup></sup></sup></td><th></th>
+          <th></th><th></th><th></th><th></th><td onclick="garo2()" id="garo_2_1" class="puzzlebox"><sup><sup><sup>2</sup></sup></sup></td>
+          <td id="garo_2_2"></td><td id="garo_2_3" onclick="sero3()" class="puzzlebox"><sup><sup><sup>3</sup></sup></sup></td><th></th><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <!--2 -->
+        <tr>
+          <th></th><th></th><th></th><td id="sero_1_2"></td><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_3_2"></td><th></th><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <!--3 -->
+        <tr>
+          <th></th><th></th><th></th><td id="sero_1_3"></td><th></th>
+          <th></th><th></th><th></th><th></th><td id="sero_4_1" onclick="sero4()" class="puzzlebox"><sup><sup><sup>4</sup></sup></sup></td>
+          <th></th><td id="sero_3_3"></td><th></th><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <!--4 -->
+        <tr>
+          <th></th><th></th><th></th><td id="sero_1_4"></td><th></th>
+          <td id="sero_5_1" onclick="sero5()" class="puzzlebox"><sup><sup><sup>5</sup></sup></sup></td><th></th><th></th><td id="garo_6_1" onclick="garo6()" class="puzzlebox"><sup><sup><sup>6</sup></sup></sup></td><td id="garo_6_2"></td>
+          <td id="garo_6_3"></td><td id="garo_6_4"></td><td id="garo_6_5"></td><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <!--5 -->
+        <tr>
+          <th></th><th></th><td id="garo_7_1" onclick="garo7()" class="puzzlebox"><sup><sup><sup>7</sup></sup></sup></td><td id="garo_7_2"></td><td id="garo_7_3"></td>
+          <td id="garo_7_4"></td><td id="garo_7_5"></td><td id="garo_7_6"></td><td id="garo_7_7"></td><td id="garo_7_8"></td>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <!--6 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <td id="sero_5_3"></td><th></th><th></th><td id="sero_6_3"></td><th></th>
+          <th></th><th></th><th></th><td id="sero_8_1" onclick="sero8()" class="puzzlebox"><sup><sup><sup>8</sup></sup></sup></td><th></th>
+          <th></th><th></th><th></th><th></th><td id="sero_9_1" onclick="sero9()" class="puzzlebox"><sup><sup><sup>9</sup></sup></sup></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--7 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <td id="sero_5_4"></td><th></th><th></th><td id="sero_6_4"></td><th></th>
+          <th></th><th></th><th></th><td id="sero_8_2"></td><th></th>
+          <th></th><th></th><th></th><th></th><td id="sero_9_2"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--8 -->
+        <tr>
+          <td id="garo_10_1" onclick="garo10()" class="puzzlebox"><sup><sup><sup>10</sup></sup></sup></td><td id="garo_10_2"></td><td id="garo_10_3"></td><td id="garo_10_4"></td><td id="garo_10_5"></td>
+          <td id="garo_10_6"></td><td id="garo_10_7" onclick="sero11()" class="puzzlebox"><sup><sup><sup>11</sup></sup></sup></td><th></th><td id="sero_6_5"></td><th></th>
+          <th></th><th></th><th></th><td id="sero_8_3"></td><th></th>
+          <th></th><td id="sero_12_1" onclick="sero12()" class="puzzlebox"><sup><sup><sup>12</sup></sup></sup></td><th></th><th></th><td id="sero_9_3"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--9 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <td id="garo_13_1" onclick="garo13()" class="puzzlebox"><sup><sup><sup>13</sup></sup></sup></td><td id="garo_13_2"></td><td id="garo_13_3"></td><td id="garo_13_4"></td><td id="garo_13_5"></td>
+          <td id="garo_13_6"></td><td id="garo_13_7"></td><td id="garo_13_8"></td><td id="garo_13_9"></td><th></th>
+          <th></th><td id="sero_12_2"></td><th></th><th></th><td id="sero_9_4"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--10 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_11_3"></td><th></th><td id="sero_6_7"></td><th></th>
+          <th></th><th></th><th></th><td id="garo_14_1" onclick="garo14()" class="puzzlebox"><sup><sup><sup>14</sup></sup></sup></td><td id="garo_14_2"></td>
+          <td id="garo_14_3"></td><td id="garo_14_4"></td><td id="garo_14_5"></td><td id="garo_14_6"></td><td id="garo_14_7"></td>
+          <td id="garo_14_8"></td><td id="garo_14_9"></td><td id="garo_14_10"></td>
+        </tr>        <!--11 -->
+        <tr>
+          <th></th><th></th><th></th><td id="garo_15_1" onclick="garo15()" class="puzzlebox"><sup><sup><sup>15</sup></sup></sup></td><td id="garo_15_2"></td>
+          <td id="garo_15_3"></td><td id="garo_15_4"></td><td id="garo_15_5"></td><td id="garo_15_6"></td><td id="garo_15_7"></td>
+          <td id="garo_15_8"></td><td id="garo_15_9"></td><th></th><td id="sero_8_6"></td><th></th>
+          <th></th><td id="sero_12_4"></td><th></th><th></th><td id="sero_9_6"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--12 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_11_5"></td><th></th><td id="sero_6_9"></td><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_12_5"></td><th></th><th></th><td id="sero_9_7"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--13 -->
+        <tr>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_11_6"></td><th></th><td id="sero_6_10"></td><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><td id="sero_12_6"></td><th></th><th></th><td id="sero_9_8"></td>
+          <th></th><th></th><th></th>
+        </tr>        <!--14 -->
+          <th></th><th></th><th></th><td id="garo_16_1" onclick="garo16()" class="puzzlebox"><sup><sup><sup>16</sup></sup></sup></td><td id="garo_16_2"></td>
+          <td id="garo_16_3"></td><td id="garo_16_4"></td><td id="garo_16_5"></td><td id="garo_16_6"></td><td id="garo_16_7"></td>
+          <td id="garo_16_8"></td><td id="garo_16_9"></td><td id="garo_16_10"></td><th></th><th></th>
+          <th></th><th></th><th></th><th></th><th></th>
+          <th></th><th></th><th></th>
+        </tr>
+      </table>
+    <li>가로</li>
+    <li id="garo_2_result">2. HTML에서 외부 .js 파일에 연결하려면 &lt;script&gt; 요소의 ___ 속성을 사용한다.</li>
+    <li id="garo_6_result">6. 변수 이름을 정할 때 실수를 피하려면 ___ 케이스 (___ case) 관례를 따르는 편이 좋다.</li>
+    <li id="garo_7_result">7. 자바스크립트는 웹 페이지에 ____ 를 해줄 수 있다.</li>
+    <li id="garo_10_result">10. ex) 벽장에는 99 __ 의 맥주가 있습니다. ( ____ of bear ).</li>
+    <li id="garo_13_result">13. 자바스크립트에서 한 줄씩 읽는 것을 ____ 이라고 부릅니다.</li>
+    <li id="garo_14_result">14. 3 + 4 는 ________ 의 한 사례 입니다.</li>
+    <li id="garo_15_result">15. 모든 자바스크립트 문장은 ___ 으로 끝납니다.</li>
+    <li id="garo_16_result">16. 코드의 문제를 해결하려면 ____ 을 사용해보세요.</li>
+    <p/>
+    <li>세로</li>
+    <li id="sero_1_result">1. 자바스크립트에서 같은 코드를 두 번 이상 실행하려면 ___ 루프를 사용합니다. (외에도 for문 등)</li>
+    <li id="sero_3_result">3. 자바스크립트 프로그램은 <font color="red">대소문자</font>를 구분합니다. ( 영어로는 _____ sensitive 하다고 말함. )</li>
+    <li id="sero_4_result">4. 변수를 선언하려면 이 키워드를 선언합니다.</li>
+    <li id="sero_5_result">5. 변수는 ____ 를 저장하기 위해 사용합니다.</li>
+    <li id="sero_6_result">6. 루프를 돌 때 마다 _____ 식을 검사합니다.</li>
+    <li id="sero_8_result">8. 오늘날 자바스크립트는 예전보다 ____ 하게 실행됩니다.</li>
+    <li id="sero_9_result">9. if/else 문은 _____ 을 내리기 위해 사용합니다.</li>
+    <li id="sero_11_result">11. 덧셈(+) 연산자로 ______ 을 연결할 수 있습니다.</li>
+    <li id="sero_12_result">12. 자바스크립트 코드는 ______ 요소 안에 들어갑니다.</li>
+
+
+<script src="./root/puzzle1.js"> // 퍼즐 스크립트 </script>
+<script src="./root/quick.js"> // 퀵 무브 </script>
+
+</body>
+</html>
