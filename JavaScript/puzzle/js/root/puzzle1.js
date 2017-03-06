@@ -112,7 +112,7 @@ function sero11(){
      document.getElementById("sero_11_3").innerHTML=result.substring(2,3);
      document.getElementById("garo_15_4").innerHTML=result.substring(3,4);
      document.getElementById("sero_11_5").innerHTML=result.substring(4,5);
-     document.getElementById("sero_11_6").innerHTML=result.substring(5,7);
+     document.getElementById("sero_11_6").innerHTML=result.substring(5,6);
      document.getElementById("garo_16_4").innerHTML=result.substring(6,7);
    }else{
      document.getElementById("sero_11_result").style.color="red";
