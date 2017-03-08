@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>과자 굽기 (return 문)</title>
+  </head>
+  <body>
+  </body>
+  <script>
+  //온도를 인자로 받는 파라미터를 넣었다.
+function bake(degrees) {
+    var message;
+
+  //온도에 따른 문자열을 message에 설정
+    if (degrees > 500) {
+        message = "저는 원자로가 아닙니다!";
+    } else if (degrees < 100) {
+        message = "저는 냉장고가 아닙니다!";
+    } else {
+        message = "저에게 딱 맞는 온도네요.";
+        setMode("굽기"); //무엇인가 하는 함수
+        setTemp(degrees);
+    }
+    return message; //결과에따라 메시지를 돌려주는 return문
+}
+
+var status = bake(350);
+
+// Here so the code will run!
+function setMode(mode) { };
+function setTemp(degrees) { };
+
+  </script>
+</body>
+</html>

@@ -41,3 +41,26 @@ ArrayList<> 으로 담아서 ArrayAdapter를 이용하여 뿌린다. 안드로�
 WAS 통신을 이용하여 연결 할 수 밖에 없다. 그렇기 때문에 이미지, 타이틀 등등 멀티미디어를 VO에 담아
 옮겨야하는데. 문제가 된다. ArrayAdapter는 VO를 담을 수 있는 메서드가 아니기 떄문에.
 따라서 안드로이드가 제공하는 BaseAdapter를 이용하여  XXXAdapter 를 만들어서 화면에 뿌려준다.
+
+
+=======================================2017/03/08 수요일====================================
+
+Notification(알림)
+
+SQLite(로컬 DB)
+CRUD
+
+4대 Component
+- Activity (화면을 보여주는 기능)
+- Service (백그라운드의 처리하는기능) = 원래는 Notification와 연결되어야됨
+- Content Provider
+- BroadCast Receiver 방송 수신자
+
+현업에서는 Notification을 잘해놔야된다.
+보통은 내부에서 저장된 푸시를 이용하지만.
+GCM 구글에서 지원하는 메세지 푸시,
+FCM 파이어폭스에서 지원하는 메세지 푸시라는 외부에서 전달해주는 알람메세지가  있다.( 어렵다.)
+
+
+따라서 폰 외부에서는 Activity가 실해되어 보여지지만
+내부에서는 BroadCast Receiver가 외부로부터 수신을 계속 감지하고 있다.

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>5분 미스테리</title>
+  </head>
+  <body>
+  </body>
+  <script>
+
+//전역변수 balance
+var balance = 10500;
+var cameraOn = true;
+
+//파라미터로 balance가 선언되었기 때문에 전역변수가 가려진다.
+function steal(balance, amount) {
+//  내부 인자 balance 가 따로 실행됨
+    cameraOn = false;
+    if (amount < balance) {
+        balance = balance - amount;
+    }
+
+  // balance는 함수내부에서 지역변수로 인식하여 처리해버리기 때문에 지역변수에서는 계산됬지만
+  //전역변수에 적용되지 못함
+    return amount;
+    cameraOn = true;
+
+}
+
+var amount = steal(balance, 1250);
+alert("범인, 당신은 " + amount + "를 훔쳤습니다.");
+console.log(balance);
+  </script>
+</body>
+</html>
