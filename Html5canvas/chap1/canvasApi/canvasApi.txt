@@ -1,0 +1,31 @@
+Canvas의 속성
+
+1. width
+  - 드로잉 표면의 너비.
+  - 캔버스의 요소를 드로잉 표면과 같은 크기로 생성
+  - 기본값 : 300
+  - css로 설정하면 브라우저는 요소의 크기에 맞게
+  설정해버림
+2. height
+  - 드로잉 표면의 높이.
+  - 기본값 : 150
+  - 위와 동일
+
+
+
+
+Canvas의 메서드
+
+1. getContext
+  - 캔버스와 연관된 그래픽 context를 반환.
+
+2. toDataURL(type, quality)
+  - img 요소의 src 속성에 할당할 수 있는 데이터 URL 반환
+  - type : 이미지 타입 jpeg, png 등등
+  - quality : 품질 수준 0.0 ~ 1.0 까지 실수값 반드시 입력
+
+3. toBlob(callback, type, args~~~)
+  - 캔버스 이미지를 포함하고 있는 파일을 나타내는 Blob을 생성.
+  - callback : 브라우저에서 Blob에 대한 참조 호출하는 함수 명시.
+  - type : 이미지 타입 jpeg, png 등등
+  - args : 품질수준, 다른 인수 등등을 추가할 수 있음.
