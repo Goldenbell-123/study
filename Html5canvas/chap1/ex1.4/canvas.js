@@ -2,9 +2,9 @@ var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d');
     font_height = 15,
     margin = 100,
-    handTrunc = canvas.width/25,
-    hourHand = canvas.width/10,
-    numspace = 20,
+    handTrunc = canvas.width/20, //초, 분 , 시 기본길이
+    hourHand = canvas.width/10, // 시침 길이를 더 조절
+    numspace = 20,// 숫자의 간격
     radius = canvas.width/2 - margin,
     handradius = radius + numspace;
 
@@ -56,7 +56,9 @@ function drawHands(){
 
   hour = hour > 12 ? hour - 12 : hour;
 
+  //(3~4시 사이의 시침의 움직임을 hour*5+(minute/60)*5)
   drawHand(hour*5 + (date.getMinutes()/60)*5, true);
+  //시간은 12개 분 과 초는 60개 이므로 hour * 5 위의 drawHand 메소드를 자세히 볼것
   drawHand(date.getMinutes(),false);
   drawHand(date.getSeconds(),false);
 }
