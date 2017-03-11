@@ -29,3 +29,79 @@ Canvas의 메서드
   - callback : 브라우저에서 Blob에 대한 참조 호출하는 함수 명시.
   - type : 이미지 타입 jpeg, png 등등
   - args : 품질수준, 다른 인수 등등을 추가할 수 있음.
+
+
+===================================================================================
+Canvas Rendering Context2D 속성
+https://www.w3schools.com/tags/ref_canvas.asp - 자세한건 여기에 다있음
+
+1.canvas
+  - canvas의 width와 height를 접근하기 위해 사용됨.
+
+2.fillStyle=color|gradient|pattern;
+  - 도형을 채울 색상, 그라디언트 , 패턴을 명시함
+
+3.font
+  - fillText() 나 strokeText()를 호출할 때 사용할 폰트를 명시
+
+4.globalAlpha="0.0~1.0";
+  - 전역 Alpha값을 설정하는 속성
+  - 0(완전 투명) 과 1(불투명) 사이의 값을 사용
+
+5.globalComposite="";
+  - A 도형 위에 B도형을 그리고 싶을때
+  - A 도형 밑에 B도형을 그리고 싶을떄
+  - B 도형의 위치를 정해줌.
+  - 각각의 속성들
+  source-over
+  source-atop
+  source-in
+  source-out
+  destination-over
+  destination-atop
+  destination-in
+  destination-out
+  lighter	Displays|
+  copy
+  xor
+
+
+6. line Cap ="butt|round|square";
+  - 선 끝모양
+
+7. lineWidth=number;(defalut=1)
+
+8. lineJoin ="bevel|round|miter";
+  -꺽인선의 > 맨뒤의 꺾인부분의 모양 설정
+  -선과 선이 만날떄 끝점을 바꾸는 것
+
+9. miterLimit = number;
+  - lineJoin 속성이 "miter"인 경우에만 작동합니다.
+  - 두선이 만나는 내측 모서리와 바깥 쪽 모서리 사이의 거리
+  - 모서리 끝부분이 줄어들거나 늘어남
+
+
+10.shadowBlur = number;
+  - 모형에 그림자를 줄수 있다.
+
+11.shadowColor = 'color rgb|code|name';
+
+12. shadowOffsetX = number ;
+  - number의 숫자만큼 X 방향으로 떨어져서 그림자를 그린다.
+
+13. shadowOffsetY = number ;
+  - 위와 동일
+
+14. strokeStyle=color|gradient|pattern;
+
+15. textAlign="center|end|left|right|start";
+  - 문자의 위치를 X 기준으로 정렬.
+
+16.textBaseline="alphabetic|top|hanging|middle|ideographic|bottom";
+  - 문자의 위치를 Y 기준으로 정렬.
+
+17.save()
+  - 현재 상태를 스택에 임시 저장가능하다.
+
+18. restore()
+  - 맨위에 있는 스택을 꺼낸다.
