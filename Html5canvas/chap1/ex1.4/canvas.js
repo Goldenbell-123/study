@@ -1,5 +1,5 @@
 var canvas = document.getElementById('canvas'),
-    ctx = canvas.getContext('2d'),
+    ctx = canvas.getContext('2d');
     font_height = 15,
     margin = 100,
     handTrunc = canvas.width/20, //초, 분 , 시 기본길이
