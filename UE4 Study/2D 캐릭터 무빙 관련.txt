@@ -1,0 +1,29 @@
+﻿//  X축 무브 캐릭터 무브먼트 //
+
+
+2. 세팅에 설정한 Move, jump, 키들을 이벤트로 가져올수 있다.
+
+3. 기본으로 세팅된 MoveRight를 이벤트로 가져와보자.
+
+블루프린트에서  input MoveRight event -  Add Movement input 그럼 연결완료
+
+Axis value는 축방향을 말하는데 Scale Value에 연결하면된다. 즉 왼쪽 오른쪽 키를 구분해줌
+
+
+
+
+//  Jump  입력  ///
+
+1. 점프 입력 액션을 가지고 온다.
+
+
+2. jump 함수에 pressed
+
+3. stop jump에 Released
+
+
+=== Jump constructor ====
+
+jumpCon01을 보삼 점프 타임을 주면 내가 누르는 만큼 계속 점프되서 2중 점프됨
+
+따라서 jumpEv01을보면 is falling을 만들어놓고 분기를 준다.
