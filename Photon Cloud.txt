@@ -1,0 +1,32 @@
+AppleID:
+53488f09-b26a-40e4-97ff-f704a740c9f1
+
+
+랜덤 매치 메이킹
+Random Match Making;
+
+
+void OnJoinedLobby()//콜백 함수
+{
+  PhotonNetwork.JoinRandomRoom();
+}
+
+void OnPhotonRandomJoinFailed() // 랜덤 조인시에 실패했을때 콜백 함수
+
+void OnJoinedRoom() //룸에 입장하면 호출되는 콜백함수
+
+
+private void OnGUI() // 접속상태를 HUD로 띄움
+
+
+Photon view Component(Script); // 네트워크 데이터 송수신 하는 스크립트
+
+Module // 프로그램을 기능별로 쪼개놓은 단위
+
+
+// 송수신간 위치나 회전을 부드럽게 연결해줌
+Vector.Lerp(첫 위치부터, 마지막 위치, 시간동안);
+Vector3.Lerp(tr.position, CurPos, Time.deltaTime * 3.0f);
+
+Quaternion.Slerp(첫 각도에서, 마지막각도까지,  시간동안);
+Quaternion.Slerp(tr.rotation, CurRot, Time.deltaTime * 3.0f);
