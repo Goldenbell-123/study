@@ -1,0 +1,185 @@
+﻿1. 변수의 정의
+
+  변수 데이터를 담는 그릇
+
+2. 블루프린트 오브젝트 와 클래스의 차이
+
+   씬에 상속 되어 있는 것을 불러오고 싶으면 오브젝트
+   씬에 상속 되어 있지 않는 것을 생성할려면 생성하려면 클래스
+
+ 예를 들면  이미 있는 코드를 다시 불러오는건 오브젝트
+  없으면 스폰을 시켜야되는 클래스를 사용
+
+3. 함수에서 파랑과 초록색의 차이
+파랑은 함수의 값을 변화시킴
+초록은 값을 변화시키지않고 가져다 씀
+
+회전축
+  x 축 roll
+  z 축 Yaw
+  y 축 pitch
+
+
+
+  FilpFlop  == 한번씩 번갈아 가며 스위칭하는 함수
+
+  physics Dinamic == 초기접촉 무시하고 그다음 충돌은 다 감지할 것임
+
+
+  http://goo.gl/VmJDrQ
+
+
+
+ANIMATION
+  1.  스켈레톤 FBX 파일 및 애니메이션 FBX 파일 임포트
+
+  2.  인풋 세팅 (키보드 및 게임패드)
+
+  3. 머터리얼 생성
+    ** 인스턴스 머터리얼 생성
+    ** 인스턴스 머터리얼 SkeletonMesh 머터리얼 엘리멘탈에 속성 부여(2개)
+
+  4. BlandSpace 1D 생성
+    ** x축 375 까지
+    ** Idle , Walk , Run  세팅
+
+  5. 애님 BP 생성
+
+
+
+  6. StateMachin 만들기
+
+  - 점프를 예를들어서 반복동작이 포함되어있을 때 부드럽게 이어주는 역할을 함
+  - 공격모션에서도 마찬가지 여러가지 복합적인 공격있을떄 StateMachine을 만들어주면 부드러운 연속동작이 가능
+
+
+
+
+Font 한글화 만들기
+
+ -- 필요조건 --
+  + KS-1001.text == fontTexture
+  + textMaterial == fontMaterials
+
+1. 오른쪽 마우스클릭: User interface < 폰트 생성 (Myfont)
+
+2. 디테일: Import Options < Character set  == FontICSDefault 설정
+
+3. 원하는 글씨체 설정(돋움) ** HY울릉도가 젤 괜찬음
+
+4. Chars 에 KS-1001.text 글 전체 복사  붙여넣기
+
+5. 나머지속성 :
+    height = 20
+    Texture Page width = 1024
+    Texture Page heigt = 1024
+
+6. 폰트 메뉴: 에셋 < Reimport
+
+7. 폴더: Engine < EngingeMaterials < DefaultTextMaterialOpaqau 복사  및 이름변경(MyFontMaterials)
+
+8. Font함수 클릭: Material Expression Font Sample < Font == MyFont 적용
+
+9.  Font 노드 (회색) == Lerp(Alpha) 연결 후 저장
+
+10.  MyFontMaterial을 적용하면 이제 한글을 쓸수 있음
+
+
+
+Spawn Point 만들기
+
+1. 타겟 포인트 드래그 드랍
+
+
+
+Lerp
+Linear  intERPolation
+
+ ++카메라 설정 ++
+
+# 컴포넌트: Spring Arm (스프링암)
+
+    일정거리를 유지하다가 좁은공간에 있을때 상황에 맞게 카메라가 캐릭터와
+    가까워 졋다가 넓은공간일떄 다시 멀어진다.
+
+
+# 디테일 패널: SpringArm < CameraSettings < Use Pawn Control Rotation(checked)
+
+    카메라를 마우스 오른쪽 버튼으로 옮길때 보통 3인칭 게임에서
+    캐릭터와 카메라의 로테이션을 분리하는 기능
+    (즉 이동하는방향으로 카메라가 따라가지 않기 위해)
+
+
+# 디테일 패널: CharacterMovement < CharacterMovement(Rotation Settings) < Orient Rotation to Movement(checked)
+
+    = 움직임에 맞게 자동으로 캐릭터의 방향이 변하도록 하려는 것
+     ** 주의 **
+     설명에서는 Use Controller Rotation Yaw가 체크를 풀어야 사용 가능
+
+
+
+# 디테일 패널: CharacterBP < Pawn < Use Controller Rotation Yaw(disChecked)
+ = 컨트롤러로 z축 회전을 할수있게 하는 기능 (마우스 방향으로 하기위해서  체크를 푼다.)
+
+++++
+
+
+
+# Posses
+
+    = 만약 캐릭터블루프린트를 올려놓고 그게 기본 시작 플레이어로 만들고 싶으면 이설정에서 player0를 선택하면됨
+
+
+# MonTage
+
+    = 애니메이션 DJ라고 한다. 여러 애니메이션을 입맛에 맞게 넣고 뺴서 실행하게 하는 애니메이션 Enumable
+
+    //Montage
+       = 사용하고자하는 애니메이션이 들어감
+
+    //Section
+       = 언제 어떻게 사용되는지 순서를 정함
+
+    //Notifies
+       = 파티클 이펙트를 넣을수 있음
+
+
+    //Slot의 기능
+
+      = 샷건을 장전할때 장전 몽타쥬만 설정해놓으면 상반신위에는 장전하고
+        앉았을때 서있었을떄 그 장전 모션은 그대로 한다. 애니메이션을 분리
+
+
+
+
+# 블루프린트 : DoOnce
+
+    = 실행하고자 하는 이벤트를 한번씩 실행하게 해주는 함수
+     (Tick Event 떄문에 계속 재생 재생 재생 되는것을 한번다 재생될때까지 기다려줌)
+
+
+
+
+# Anim그래프 : StateMachine
+
+  애니메이션 동작을 연결해주는 머신 대표적으로 점프
+
+
+# Anim그래프 : Cache(캐시포즈새로저장)
+
+  기본 스테이트 머신의 노드를 여러갈래 나눌떄 캐쉬로 저장해놓고 쓴다.
+
+
+# Anim그래프 : Slot
+
+  Montage를 저장해놓은 slot이다.
+  이것은 StateMachine과 최종 애니메이션 포즈 사이에 인터셉터처럼 놓는다.
+
+
+# Anim그래프 : 본마다 레이어로 블랜딩합니다.(blend bone)
+
+  원하는 본을 기준으로 애니메이션을 따로 돌아가도록 설정 가능
+  BasePose == stateMachine
+  BlendPose == slot을 연결 (slot은 캐쉬로 저장된 statemachine 연결되어있어야됨)
+  ** 함수를 클릭 후 Config < LayerSetup < BranchFilters < Bone name(명시된 본네임을 찾아서 써주면 됨)
+  ** 본 찾을시에 표시 < 본이름(체크)
