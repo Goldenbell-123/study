@@ -183,3 +183,60 @@ Linear  intERPolation
   BlendPose == slot을 연결 (slot은 캐쉬로 저장된 statemachine 연결되어있어야됨)
   ** 함수를 클릭 후 Config < LayerSetup < BranchFilters < Bone name(명시된 본네임을 찾아서 써주면 됨)
   ** 본 찾을시에 표시 < 본이름(체크)
+
+
+폴리곤: 점과 선이 만나서 만들어진 면
+매쉬 : 폴리곤들이 합쳐서 만들어진 요소
+
+Character Movement: Walk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+엔진 세팅 - Collison
+
+Object Channels 장거리
+
+Trace Channels 근거리
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Montage : Notify < Category < Motange Tick < Que
+
+Stack 과 Que의 차이점을 알면됨
+
+ ** Stack 마지막에 들어간게 먼저 나옴
+
+ ** Que 먼저들어간게 먼저나옴
+
+
+people who work at 회사 이름
+
+
+1. 사진
+
+2.고용 유지율 (근무지 이사가능이라고 주소에 적는다.)
+
+3.
